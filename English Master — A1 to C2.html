@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Master — A1 to C2</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sky: #e8f4fd;
+  --white: #ffffff;
+  --soft: #f5f9ff;
+  --card: #ffffff;
+  --border: #dce8f8;
+  --text: #1a2a3a;
+  --muted: #6b7fa3;
+  --accent: #2563eb;
+  --accent2: #7c3aed;
+  --green: #059669;
+  --red: #dc2626;
+  --yellow: #d97706;
+  --teal: #0891b2;
+  --pink: #db2777;
+  --shadow: 0 2px 12px rgba(37,99,235,0.10);
+  --radius: 16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:var(--sky);color:var(--text);min-height:100vh}
+/* TOP NAV */
+.topbar{background:var(--white);border-bottom:2px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:16px;height:60px;position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.topbar-logo{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:800;color:var(--accent);letter-spacing:-0.5px;white-space:nowrap}
+.topbar-logo span{color:var(--accent2)}
+.nav-tabs{display:flex;gap:4px;flex:1;overflow-x:auto;scrollbar-width:none}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{padding:8px 16px;border-radius:10px;border:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all .2s}
+.nav-tab:hover{background:var(--soft);color:var(--accent)}
+.nav-tab.active{background:var(--accent);color:#fff}
+.score-pill{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:6px 16px;border-radius:20px;font-size:0.85rem;font-weight:800;white-space:nowrap;margin-left:auto}
+/* MAIN */
+.main{max-width:1100px;margin:0 auto;padding:24px 16px}
+/* SECTION HEADERS */
+.section-hero{text-align:center;padding:32px 0 24px}
+.section-hero h1{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:800;color:var(--accent);line-height:1.2}
+.section-hero p{color:var(--muted);margin-top:8px;font-size:1rem}
+/* LEVEL SELECTOR */
+.level-strip{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:24px}
+.level-btn{padding:8px 20px;border-radius:24px;border:2px solid var(--border);background:var(--white);font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:800;cursor:pointer;transition:all .2s;color:var(--text)}
+.level-btn.active,.level-btn:hover{border-color:var(--accent);background:var(--accent);color:#fff}
+.level-btn[data-lv="A1"]{--lc:#22c55e}.level-btn[data-lv="A2"]{--lc:#84cc16}.level-btn[data-lv="B1"]{--lc:#eab308}.level-btn[data-lv="B2"]{--lc:#f97316}.level-btn[data-lv="C1"]{--lc:#ef4444}.level-btn[data-lv="C2"]{--lc:#a855f7}
+.level-btn.active{background:var(--lc,var(--accent));border-color:var(--lc,var(--accent))}
+/* CARDS GRID */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:28px}
+.card{background:var(--card);border-radius:var(--radius);border:1.5px solid var(--border);padding:20px;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(37,99,235,0.13)}
+.card-tag{display:inline-block;padding:3px 10px;border-radius:8px;font-size:0.72rem;font-weight:800;margin-bottom:10px;letter-spacing:.5px;text-transform:uppercase}
+.card-tag.green{background:#d1fae5;color:#065f46}
+.card-tag.blue{background:#dbeafe;color:#1e40af}
+.card-tag.purple{background:#ede9fe;color:#5b21b6}
+.card-tag.yellow{background:#fef3c7;color:#92400e}
+.card-tag.red{background:#fee2e2;color:#991b1b}
+.card-title{font-size:1.05rem;font-weight:800;margin-bottom:4px}
+.card-sub{font-size:0.82rem;color:var(--muted);margin-bottom:12px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:10px;border:none;font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:800;cursor:pointer;transition:all .2s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#1d4ed8}
+.btn-outline{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+.btn-outline:hover{background:var(--accent);color:#fff}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:#047857}
+/* VOCAB TABLE */
+.vocab-table{width:100%;border-collapse:collapse;font-size:0.85rem}
+.vocab-table th{background:var(--accent);color:#fff;padding:10px 12px;text-align:left;font-weight:800}
+.vocab-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+.vocab-table tr:hover td{background:var(--soft)}
+.vocab-table tr:last-child td{border-bottom:none}
+.v-word{font-weight:800;color:var(--accent)}
+.v-meaning{color:var(--muted)}
+/* TENSE TABLE */
+.tense-grid{display:grid;gap:14px}
+.tense-card{background:var(--white);border-radius:var(--radius);border:1.5px solid var(--border);padding:18px;box-shadow:var(--shadow)}
+.tense-name{font-weight:800;font-size:1rem;color:var(--accent2);margin-bottom:4px}
+.tense-formula{background:var(--soft);border-radius:8px;padding:8px 12px;font-size:0.82rem;margin-bottom:8px;font-family:monospace;color:var(--text)}
+.tense-use{font-size:0.82rem;color:var(--muted);margin-bottom:6px}
+.tense-examples{font-size:0.82rem}
+.tense-ex{padding:3px 0;border-bottom:1px dashed var(--border);color:var(--text)}
+.tense-ex:last-child{border-bottom:none}
+.tense-ex strong{color:var(--accent)}
+/* QUIZ */
+.quiz-wrap{background:var(--white);border-radius:var(--radius);border:1.5px solid var(--border);padding:24px;box-shadow:var(--shadow);max-width:700px;margin:0 auto}
+.quiz-progress{display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap}
+.q-dot{width:10px;height:10px;border-radius:50%;background:var(--border);transition:background .3s}
+.q-dot.done{background:var(--green)}
+.q-dot.current{background:var(--accent)}
+.q-dot.wrong{background:var(--red)}
+.q-num{font-size:0.8rem;color:var(--muted);margin-bottom:6px;font-weight:700}
+.q-text{font-size:1.1rem;font-weight:700;margin-bottom:18px;line-height:1.5;min-height:60px}
+.q-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.q-opt{padding:12px 16px;border-radius:12px;border:2px solid var(--border);background:var(--soft);font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;transition:all .2s;text-align:left;color:var(--text)}
+.q-opt:hover:not(:disabled){border-color:var(--accent);background:var(--sky);color:var(--accent)}
+.q-opt.correct{border-color:var(--green);background:#d1fae5;color:#065f46}
+.q-opt.wrong{border-color:var(--red);background:#fee2e2;color:#991b1b}
+.q-opt:disabled{cursor:not-allowed}
+.q-feedback{padding:12px 16px;border-radius:10px;font-size:0.85rem;font-weight:700;margin-bottom:12px;display:none}
+.q-feedback.show{display:block}
+.q-feedback.ok{background:#d1fae5;color:#065f46;border:1px solid #6ee7b7}
+.q-feedback.no{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+.q-score-bar{display:flex;justify-content:space-between;align-items:center;font-size:0.82rem;color:var(--muted);margin-bottom:8px}
+.q-score-live{font-weight:800;color:var(--accent);font-size:1rem}
+.result-box{text-align:center;padding:24px}
+.result-emoji{font-size:3.5rem;margin-bottom:10px}
+.result-score{font-size:2.5rem;font-weight:900;color:var(--accent)}
+.result-msg{font-size:1rem;color:var(--muted);margin:8px 0 20px}
+/* VOCAB SECTION */
+.vocab-search{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.vocab-search input{flex:1;min-width:200px;padding:10px 16px;border-radius:10px;border:2px solid var(--border);font-family:'Nunito',sans-serif;font-size:0.9rem;outline:none;transition:border .2s}
+.vocab-search input:focus{border-color:var(--accent)}
+.vocab-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.vf-btn{padding:5px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--white);font-size:0.78rem;font-weight:700;cursor:pointer;transition:all .2s}
+.vf-btn.active,.vf-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.vocab-count{font-size:0.8rem;color:var(--muted);margin-bottom:10px}
+/* PAGES */
+.page{display:none}
+.page.active{display:block}
+/* TENSE HACK SECTION */
+.hack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.hack-card{background:var(--white);border-radius:var(--radius);border-left:5px solid var(--accent);padding:16px;box-shadow:var(--shadow)}
+.hack-title{font-weight:900;font-size:0.95rem;color:var(--accent2);margin-bottom:6px}
+.hack-key{background:linear-gradient(135deg,#eff6ff,#f5f3ff);border-radius:8px;padding:8px 12px;font-size:0.82rem;margin-bottom:6px;font-weight:700;color:var(--accent)}
+.hack-trick{font-size:0.82rem;color:var(--muted)}
+/* TABS inside page */
+.sub-tabs{display:flex;gap:6px;margin-bottom:20px;border-bottom:2px solid var(--border);padding-bottom:10px;flex-wrap:wrap}
+.sub-tab{padding:7px 16px;border-radius:8px;border:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:700;color:var(--muted);cursor:pointer;transition:all .2s}
+.sub-tab.active{background:var(--accent);color:#fff}
+.sub-page{display:none}
+.sub-page.active{display:block}
+/* STREAK */
+.streak-bar{display:flex;gap:8px;align-items:center;background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1.5px solid #fde68a;border-radius:12px;padding:12px 16px;margin-bottom:20px}
+.streak-icon{font-size:1.5rem}
+.streak-text{font-size:0.85rem;font-weight:700;color:var(--yellow)}
+/* RESPONSIVE */
+@media(max-width:600px){
+  .q-options{grid-template-columns:1fr}
+  .section-hero h1{font-size:1.6rem}
+  .topbar-logo{font-size:1.1rem}
+}
+/* HIDDEN */
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-logo">English<span>Master</span></div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showPage('home')">🏠 Home</button>
+    <button class="nav-tab" onclick="showPage('vocab')">📖 Vocabulary</button>
+    <button class="nav-tab" onclick="showPage('tenses')">⏱ Tenses</button>
+    <button class="nav-tab" onclick="showPage('quiz')">🎯 Quiz</button>
+    <button class="nav-tab" onclick="showPage('irregular')">🔄 Irregular Verbs</button>
+  </div>
+  <div class="score-pill">⭐ <span id="totalScore">0</span> pts</div>
+</div>
+
+<div class="main">
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="section-hero">
+    <h1>English Master A1 → C2</h1>
+    <p>Belajar vocab, grammar, 16 tenses + ratusan soal latihan. Mulai dari mana aja!</p>
+  </div>
+  <div class="streak-bar">
+    <span class="streak-icon">🔥</span>
+    <span class="streak-text">Streak hari ini: <span id="streakCount">0</span> soal benar berturut-turut! Terus semangat!</span>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <span class="card-tag green">Vocabulary</span>
+      <div class="card-title">📖 Kamus Lengkap A1–C2</div>
+      <div class="card-sub">600+ kata lengkap dengan V1 V2 V3 V-ing, arti, dan contoh kalimat</div>
+      <button class="btn btn-primary" onclick="showPage('vocab')">Buka Kamus →</button>
+    </div>
+    <div class="card">
+      <span class="card-tag blue">Grammar</span>
+      <div class="card-title">⏱ 16 Tenses Lengkap</div>
+      <div class="card-sub">Rumus, penggunaan, contoh kalimat, dan trik hafal semua tenses</div>
+      <button class="btn btn-primary" onclick="showPage('tenses')">Pelajari →</button>
+    </div>
+    <div class="card">
+      <span class="card-tag purple">Quiz</span>
+      <div class="card-title">🎯 Bank Soal 500+ Soal</div>
+      <div class="card-sub">Pilihan ganda per level A1–C2, vocab & grammar, score live!</div>
+      <button class="btn btn-primary" onclick="showPage('quiz')">Mulai Quiz →</button>
+    </div>
+    <div class="card">
+      <span class="card-tag yellow">Verbs</span>
+      <div class="card-title">🔄 Irregular Verbs A–Z</div>
+      <div class="card-sub">200+ kata kerja tidak beraturan lengkap V1 V2 V3 + arti</div>
+      <button class="btn btn-primary" onclick="showPage('irregular')">Lihat Daftar →</button>
+    </div>
+    <div class="card">
+      <span class="card-tag red">Hack</span>
+      <div class="card-title">🧠 Trik Hafal 16 Tenses</div>
+      <div class="card-sub">Signal words & mnemonik agar tenses nempel di kepala selamanya</div>
+      <button class="btn btn-primary" onclick="showPage('tenses');setTimeout(()=>showSubTab('tenses','hack'),100)">Lihat Trik →</button>
+    </div>
+    <div class="card">
+      <span class="card-tag green">Progress</span>
+      <div class="card-title">📊 Progress Kamu</div>
+      <div class="card-sub">Total poin: <strong id="homePts">0</strong> | Quiz selesai: <strong id="homeQuiz">0</strong></div>
+      <button class="btn btn-outline" onclick="showPage('quiz')">Latihan Lagi →</button>
+    </div>
+  </div>
+</div>
+
+<!-- VOCAB PAGE -->
+<div class="page" id="page-vocab">
+  <div class="section-hero">
+    <h1>📖 Vocabulary A1 – C2</h1>
+    <p>600+ kata dengan arti, V1 V2 V3 V-ing, dan contoh kalimat</p>
+  </div>
+  <div class="sub-tabs">
+    <button class="sub-tab active" onclick="showSubTab('vocab','list')">📋 Daftar Kata</button>
+    <button class="sub-tab" onclick="showSubTab('vocab','flashcard')">🃏 Flashcard</button>
+  </div>
+  <div class="sub-page active" id="vocab-list">
+    <div class="vocab-search">
+      <input type="text" id="vocabSearch" placeholder="🔍 Cari kata..." oninput="filterVocab()">
+    </div>
+    <div class="vocab-filter" id="vocabFilterBtns"></div>
+    <div class="vocab-count" id="vocabCount"></div>
+    <div style="overflow-x:auto">
+      <table class="vocab-table" id="vocabTable">
+        <thead><tr>
+          <th>Kata</th><th>Level</th><th>Jenis</th><th>V1</th><th>V2</th><th>V3</th><th>V-ing</th><th>Arti (ID)</th><th>Contoh</th>
+        </tr></thead>
+        <tbody id="vocabBody"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sub-page" id="vocab-flashcard">
+    <div style="text-align:center;max-width:500px;margin:0 auto">
+      <div class="vocab-filter" id="fcFilterBtns" style="justify-content:center"></div>
+      <div id="flashcard" onclick="flipCard()" style="background:var(--white);border-radius:20px;border:2px solid var(--border);padding:40px 24px;cursor:pointer;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:var(--shadow);margin:10px 0 16px;transition:all .3s">
+        <div id="fc-level" style="font-size:0.75rem;font-weight:800;color:var(--muted);margin-bottom:8px"></div>
+        <div id="fc-front" style="font-size:2rem;font-weight:900;color:var(--accent)"></div>
+        <div id="fc-hint" style="font-size:0.8rem;color:var(--muted);margin-top:8px">Klik untuk lihat arti</div>
+        <div id="fc-back" style="display:none;margin-top:12px;text-align:center">
+          <div style="font-size:1.1rem;font-weight:700;color:var(--green)"></div>
+          <div style="font-size:0.82rem;color:var(--muted);margin-top:6px" id="fc-vforms"></div>
+          <div style="font-size:0.82rem;color:var(--text);margin-top:6px;font-style:italic" id="fc-ex"></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-outline" onclick="prevCard()">← Prev</button>
+        <span style="align-self:center;font-size:0.85rem;color:var(--muted)" id="fcProgress"></span>
+        <button class="btn btn-primary" onclick="nextCard()">Next →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TENSES PAGE -->
+<div class="page" id="page-tenses">
+  <div class="section-hero">
+    <h1>⏱ 16 Tenses Bahasa Inggris</h1>
+    <p>Rumus lengkap, penggunaan, contoh kalimat, dan trik hafal</p>
+  </div>
+  <div class="sub-tabs">
+    <button class="sub-tab active" onclick="showSubTab('tenses','all')">📋 Semua Tenses</button>
+    <button class="sub-tab" onclick="showSubTab('tenses','hack')">🧠 Trik Hafal</button>
+    <button class="sub-tab" onclick="showSubTab('tenses','compare')">🔍 Perbandingan</button>
+  </div>
+  <div class="sub-page active" id="tenses-all">
+    <div class="tense-grid" id="tenseGrid"></div>
+  </div>
+  <div class="sub-page" id="tenses-hack">
+    <div class="section-hero" style="padding:0 0 16px">
+      <h1 style="font-size:1.5rem">🧠 Signal Words & Trik Hafal 16 Tenses</h1>
+    </div>
+    <div class="hack-grid" id="hackGrid"></div>
+  </div>
+  <div class="sub-page" id="tenses-compare">
+    <div id="compareContent"></div>
+  </div>
+</div>
+
+<!-- QUIZ PAGE -->
+<div class="page" id="page-quiz">
+  <div class="section-hero">
+    <h1>🎯 Quiz Bank Soal</h1>
+    <p>500+ soal pilihan ganda per level. Score live!</p>
+  </div>
+  <div id="quizMenu">
+    <div class="level-strip" id="quizLevelBtns"></div>
+    <div class="cards" id="quizTypeCards">
+      <div class="card">
+        <span class="card-tag blue">Vocabulary</span>
+        <div class="card-title">📖 Quiz Vocab</div>
+        <div class="card-sub">Pilih arti yang benar dari kata yang diberikan</div>
+        <button class="btn btn-primary" onclick="startQuiz('vocab')">Mulai →</button>
+      </div>
+      <div class="card">
+        <span class="card-tag purple">Grammar</span>
+        <div class="card-title">⏱ Quiz Tenses & Grammar</div>
+        <div class="card-sub">Pilih tenses atau bentuk kata yang tepat</div>
+        <button class="btn btn-primary" onclick="startQuiz('grammar')">Mulai →</button>
+      </div>
+      <div class="card">
+        <span class="card-tag red">Mix</span>
+        <div class="card-title">🎲 Quiz Campuran</div>
+        <div class="card-sub">Random mix semua topik. Paling menantang!</div>
+        <button class="btn btn-primary" onclick="startQuiz('mix')">Mulai →</button>
+      </div>
+      <div class="card">
+        <span class="card-tag green">V2/V3</span>
+        <div class="card-title">🔄 Quiz Irregular Verbs</div>
+        <div class="card-sub">Tebak bentuk V2 atau V3 dari kata kerja tidak beraturan</div>
+        <button class="btn btn-primary" onclick="startQuiz('irregular')">Mulai →</button>
+      </div>
+    </div>
+  </div>
+  <div class="quiz-wrap hidden" id="quizBox">
+    <div class="q-score-bar">
+      <span id="qLevelTag"></span>
+      <span>✅ <span id="qCorrect">0</span> | ❌ <span id="qWrong">0</span></span>
+      <span class="q-score-live">⭐ <span id="qPts">0</span> pts</span>
+    </div>
+    <div class="quiz-progress" id="qDots"></div>
+    <div class="q-num" id="qNum"></div>
+    <div class="q-text" id="qText"></div>
+    <div class="q-options" id="qOpts"></div>
+    <div class="q-feedback" id="qFeedback"></div>
+    <button class="btn btn-primary" id="qNext" onclick="nextQuestion()" style="display:none">Soal Berikutnya →</button>
+    <button class="btn btn-outline" id="qQuit" onclick="quitQuiz()">← Keluar</button>
+  </div>
+  <div class="quiz-wrap hidden" id="quizResult">
+    <div class="result-box">
+      <div class="result-emoji" id="rEmoji"></div>
+      <div class="result-score" id="rScore"></div>
+      <div class="result-msg" id="rMsg"></div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="retryQuiz()">🔄 Ulangi Quiz</button>
+        <button class="btn btn-outline" onclick="quitQuiz()">← Menu Quiz</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- IRREGULAR VERBS PAGE -->
+<div class="page" id="page-irregular">
+  <div class="section-hero">
+    <h1>🔄 Irregular Verbs A–Z</h1>
+    <p>200+ kata kerja tidak beraturan lengkap V1 V2 V3 beserta arti</p>
+  </div>
+  <div class="vocab-search">
+    <input type="text" id="irrSearch" placeholder="🔍 Cari irregular verb..." oninput="filterIrr()">
+  </div>
+  <div class="vocab-count" id="irrCount"></div>
+  <div style="overflow-x:auto">
+    <table class="vocab-table" id="irrTable">
+      <thead><tr>
+        <th>V1 (Base)</th><th>V2 (Past)</th><th>V3 (Past Participle)</th><th>V-ing</th><th>Arti (ID)</th>
+      </tr></thead>
+      <tbody id="irrBody"></tbody>
+    </table>
+  </div>
+</div>
+
+</div><!-- end main -->
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+
+const VOCAB = [
+// A1 LEVEL
+{w:"be",l:"A1",pos:"verb",v1:"be",v2:"was/were",v3:"been",ving:"being",id:"adalah/menjadi",ex:"I am a student."},
+{w:"have",l:"A1",pos:"verb",v1:"have",v2:"had",v3:"had",ving:"having",id:"memiliki",ex:"I have a cat."},
+{w:"do",l:"A1",pos:"verb",v1:"do",v2:"did",v3:"done",ving:"doing",id:"melakukan",ex:"Do your homework."},
+{w:"say",l:"A1",pos:"verb",v1:"say",v2:"said",v3:"said",ving:"saying",id:"berkata/mengatakan",ex:"She said hello."},
+{w:"go",l:"A1",pos:"verb",v1:"go",v2:"went",v3:"gone",ving:"going",id:"pergi",ex:"Let's go to school."},
+{w:"get",l:"A1",pos:"verb",v1:"get",v2:"got",v3:"got/gotten",ving:"getting",id:"mendapatkan",ex:"I got a gift."},
+{w:"make",l:"A1",pos:"verb",v1:"make",v2:"made",v3:"made",ving:"making",id:"membuat",ex:"She makes a cake."},
+{w:"know",l:"A1",pos:"verb",v1:"know",v2:"knew",v3:"known",ving:"knowing",id:"mengetahui",ex:"I know the answer."},
+{w:"think",l:"A1",pos:"verb",v1:"think",v2:"thought",v3:"thought",ving:"thinking",id:"berpikir",ex:"I think it's great."},
+{w:"take",l:"A1",pos:"verb",v1:"take",v2:"took",v3:"taken",ving:"taking",id:"mengambil",ex:"Take this book."},
+{w:"see",l:"A1",pos:"verb",v1:"see",v2:"saw",v3:"seen",ving:"seeing",id:"melihat",ex:"I can see the stars."},
+{w:"come",l:"A1",pos:"verb",v1:"come",v2:"came",v3:"come",ving:"coming",id:"datang",ex:"Please come here."},
+{w:"want",l:"A1",pos:"verb",v1:"want",v2:"wanted",v3:"wanted",ving:"wanting",id:"menginginkan",ex:"I want some water."},
+{w:"look",l:"A1",pos:"verb",v1:"look",v2:"looked",v3:"looked",ving:"looking",id:"melihat/tampak",ex:"Look at the board."},
+{w:"use",l:"A1",pos:"verb",v1:"use",v2:"used",v3:"used",ving:"using",id:"menggunakan",ex:"Use a pencil."},
+{w:"give",l:"A1",pos:"verb",v1:"give",v2:"gave",v3:"given",ving:"giving",id:"memberi",ex:"Give me the ball."},
+{w:"find",l:"A1",pos:"verb",v1:"find",v2:"found",v3:"found",ving:"finding",id:"menemukan",ex:"I found my key."},
+{w:"tell",l:"A1",pos:"verb",v1:"tell",v2:"told",v3:"told",ving:"telling",id:"memberitahu",ex:"Tell me a story."},
+{w:"ask",l:"A1",pos:"verb",v1:"ask",v2:"asked",v3:"asked",ving:"asking",id:"bertanya/meminta",ex:"Ask your teacher."},
+{w:"work",l:"A1",pos:"verb",v1:"work",v2:"worked",v3:"worked",ving:"working",id:"bekerja",ex:"She works hard."},
+{w:"like",l:"A1",pos:"verb",v1:"like",v2:"liked",v3:"liked",ving:"liking",id:"menyukai",ex:"I like cats."},
+{w:"eat",l:"A1",pos:"verb",v1:"eat",v2:"ate",v3:"eaten",ving:"eating",id:"makan",ex:"I eat rice."},
+{w:"drink",l:"A1",pos:"verb",v1:"drink",v2:"drank",v3:"drunk",ving:"drinking",id:"minum",ex:"Drink your milk."},
+{w:"sleep",l:"A1",pos:"verb",v1:"sleep",v2:"slept",v3:"slept",ving:"sleeping",id:"tidur",ex:"I sleep early."},
+{w:"run",l:"A1",pos:"verb",v1:"run",v2:"ran",v3:"run",ving:"running",id:"berlari",ex:"He runs fast."},
+{w:"sit",l:"A1",pos:"verb",v1:"sit",v2:"sat",v3:"sat",ving:"sitting",id:"duduk",ex:"Sit down please."},
+{w:"stand",l:"A1",pos:"verb",v1:"stand",v2:"stood",v3:"stood",ving:"standing",id:"berdiri",ex:"Stand up!"},
+{w:"walk",l:"A1",pos:"verb",v1:"walk",v2:"walked",v3:"walked",ving:"walking",id:"berjalan",ex:"Walk to school."},
+{w:"play",l:"A1",pos:"verb",v1:"play",v2:"played",v3:"played",ving:"playing",id:"bermain",ex:"Kids play outside."},
+{w:"read",l:"A1",pos:"verb",v1:"read",v2:"read",v3:"read",ving:"reading",id:"membaca",ex:"Read the book."},
+{w:"write",l:"A1",pos:"verb",v1:"write",v2:"wrote",v3:"written",ving:"writing",id:"menulis",ex:"Write your name."},
+{w:"open",l:"A1",pos:"verb",v1:"open",v2:"opened",v3:"opened",ving:"opening",id:"membuka",ex:"Open the window."},
+{w:"close",l:"A1",pos:"verb",v1:"close",v2:"closed",v3:"closed",ving:"closing",id:"menutup",ex:"Close the door."},
+{w:"help",l:"A1",pos:"verb",v1:"help",v2:"helped",v3:"helped",ving:"helping",id:"membantu",ex:"Help me please."},
+{w:"buy",l:"A1",pos:"verb",v1:"buy",v2:"bought",v3:"bought",ving:"buying",id:"membeli",ex:"Buy some bread."},
+{w:"big",l:"A1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"besar",ex:"This is a big house."},
+{w:"small",l:"A1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"kecil",ex:"A small dog."},
+{w:"good",l:"A1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"baik/bagus",ex:"You did a good job."},
+{w:"bad",l:"A1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"buruk/jelek",ex:"That was a bad idea."},
+{w:"new",l:"A1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"baru",ex:"I have a new bag."},
+{w:"old",l:"A1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"tua/lama",ex:"He is an old man."},
+{w:"happy",l:"A1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"bahagia",ex:"I am so happy!"},
+{w:"sad",l:"A1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"sedih",ex:"She looks sad today."},
+{w:"hot",l:"A1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"panas",ex:"The soup is hot."},
+{w:"cold",l:"A1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"dingin",ex:"The water is cold."},
+{w:"fast",l:"A1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"cepat",ex:"He runs fast."},
+{w:"slow",l:"A1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"lambat",ex:"Snails are slow."},
+{w:"house",l:"A1",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"rumah",ex:"My house is big."},
+{w:"school",l:"A1",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"sekolah",ex:"I go to school."},
+{w:"family",l:"A1",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"keluarga",ex:"I love my family."},
+{w:"friend",l:"A1",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"teman",ex:"She is my friend."},
+{w:"book",l:"A1",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"buku",ex:"This book is mine."},
+{w:"water",l:"A1",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"air",ex:"Drink more water."},
+{w:"food",l:"A1",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"makanan",ex:"The food is yummy."},
+// A2 LEVEL
+{w:"travel",l:"A2",pos:"verb",v1:"travel",v2:"travelled",v3:"travelled",ving:"travelling",id:"bepergian",ex:"I love to travel."},
+{w:"learn",l:"A2",pos:"verb",v1:"learn",v2:"learned/learnt",v3:"learned/learnt",ving:"learning",id:"belajar",ex:"Learn every day."},
+{w:"start",l:"A2",pos:"verb",v1:"start",v2:"started",v3:"started",ving:"starting",id:"memulai",ex:"Start your homework."},
+{w:"finish",l:"A2",pos:"verb",v1:"finish",v2:"finished",v3:"finished",ving:"finishing",id:"menyelesaikan",ex:"Finish the test."},
+{w:"arrive",l:"A2",pos:"verb",v1:"arrive",v2:"arrived",v3:"arrived",ving:"arriving",id:"tiba",ex:"We arrived at 8."},
+{w:"leave",l:"A2",pos:"verb",v1:"leave",v2:"left",v3:"left",ving:"leaving",id:"meninggalkan/pergi",ex:"She left early."},
+{w:"bring",l:"A2",pos:"verb",v1:"bring",v2:"brought",v3:"brought",ving:"bringing",id:"membawa",ex:"Bring your ID."},
+{w:"meet",l:"A2",pos:"verb",v1:"meet",v2:"met",v3:"met",ving:"meeting",id:"bertemu",ex:"Nice to meet you."},
+{w:"send",l:"A2",pos:"verb",v1:"send",v2:"sent",v3:"sent",ving:"sending",id:"mengirim",ex:"Send an email."},
+{w:"speak",l:"A2",pos:"verb",v1:"speak",v2:"spoke",v3:"spoken",ving:"speaking",id:"berbicara",ex:"Speak clearly."},
+{w:"listen",l:"A2",pos:"verb",v1:"listen",v2:"listened",v3:"listened",ving:"listening",id:"mendengarkan",ex:"Listen carefully."},
+{w:"wait",l:"A2",pos:"verb",v1:"wait",v2:"waited",v3:"waited",ving:"waiting",id:"menunggu",ex:"Wait for me."},
+{w:"try",l:"A2",pos:"verb",v1:"try",v2:"tried",v3:"tried",ving:"trying",id:"mencoba",ex:"Try harder."},
+{w:"spend",l:"A2",pos:"verb",v1:"spend",v2:"spent",v3:"spent",ving:"spending",id:"menghabiskan",ex:"Don't spend too much."},
+{w:"feel",l:"A2",pos:"verb",v1:"feel",v2:"felt",v3:"felt",ving:"feeling",id:"merasa",ex:"I feel tired."},
+{w:"remember",l:"A2",pos:"verb",v1:"remember",v2:"remembered",v3:"remembered",ving:"remembering",id:"mengingat",ex:"Remember the date."},
+{w:"forget",l:"A2",pos:"verb",v1:"forget",v2:"forgot",v3:"forgotten",ving:"forgetting",id:"melupakan",ex:"Don't forget me."},
+{w:"understand",l:"A2",pos:"verb",v1:"understand",v2:"understood",v3:"understood",ving:"understanding",id:"memahami",ex:"I understand now."},
+{w:"enjoy",l:"A2",pos:"verb",v1:"enjoy",v2:"enjoyed",v3:"enjoyed",ving:"enjoying",id:"menikmati",ex:"Enjoy your meal."},
+{w:"need",l:"A2",pos:"verb",v1:"need",v2:"needed",v3:"needed",ving:"needing",id:"membutuhkan",ex:"I need help."},
+{w:"beautiful",l:"A2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"cantik/indah",ex:"What a beautiful view!"},
+{w:"tired",l:"A2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"lelah",ex:"I am so tired."},
+{w:"busy",l:"A2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"sibuk",ex:"She is very busy."},
+{w:"different",l:"A2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"berbeda",ex:"We are different."},
+{w:"same",l:"A2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"sama",ex:"We think the same."},
+{w:"easy",l:"A2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"mudah",ex:"This test is easy."},
+{w:"difficult",l:"A2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"sulit",ex:"Math is difficult."},
+{w:"early",l:"A2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"awal/pagi",ex:"She wakes up early."},
+{w:"late",l:"A2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"terlambat/malam",ex:"Don't be late!"},
+{w:"job",l:"A2",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"pekerjaan",ex:"I got a new job."},
+{w:"money",l:"A2",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"uang",ex:"Save your money."},
+{w:"problem",l:"A2",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"masalah",ex:"No problem!"},
+{w:"idea",l:"A2",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"ide/gagasan",ex:"Great idea!"},
+{w:"place",l:"A2",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"tempat",ex:"This is a nice place."},
+// B1 LEVEL
+{w:"achieve",l:"B1",pos:"verb",v1:"achieve",v2:"achieved",v3:"achieved",ving:"achieving",id:"mencapai",ex:"She achieved her goal."},
+{w:"affect",l:"B1",pos:"verb",v1:"affect",v2:"affected",v3:"affected",ving:"affecting",id:"mempengaruhi",ex:"Stress affects health."},
+{w:"allow",l:"B1",pos:"verb",v1:"allow",v2:"allowed",v3:"allowed",ving:"allowing",id:"mengizinkan",ex:"Allow me to explain."},
+{w:"argue",l:"B1",pos:"verb",v1:"argue",v2:"argued",v3:"argued",ving:"arguing",id:"berdebat/berargumen",ex:"Don't argue with me."},
+{w:"belong",l:"B1",pos:"verb",v1:"belong",v2:"belonged",v3:"belonged",ving:"belonging",id:"dimiliki/termasuk",ex:"This belongs to me."},
+{w:"cause",l:"B1",pos:"verb",v1:"cause",v2:"caused",v3:"caused",ving:"causing",id:"menyebabkan",ex:"Rain caused flooding."},
+{w:"change",l:"B1",pos:"verb",v1:"change",v2:"changed",v3:"changed",ving:"changing",id:"mengubah/berubah",ex:"People can change."},
+{w:"choose",l:"B1",pos:"verb",v1:"choose",v2:"chose",v3:"chosen",ving:"choosing",id:"memilih",ex:"Choose wisely."},
+{w:"compare",l:"B1",pos:"verb",v1:"compare",v2:"compared",v3:"compared",ving:"comparing",id:"membandingkan",ex:"Compare the prices."},
+{w:"consider",l:"B1",pos:"verb",v1:"consider",v2:"considered",v3:"considered",ving:"considering",id:"mempertimbangkan",ex:"Consider the risk."},
+{w:"continue",l:"B1",pos:"verb",v1:"continue",v2:"continued",v3:"continued",ving:"continuing",id:"melanjutkan",ex:"Continue reading."},
+{w:"create",l:"B1",pos:"verb",v1:"create",v2:"created",v3:"created",ving:"creating",id:"menciptakan",ex:"She creates art."},
+{w:"describe",l:"B1",pos:"verb",v1:"describe",v2:"described",v3:"described",ving:"describing",id:"menggambarkan",ex:"Describe your town."},
+{w:"develop",l:"B1",pos:"verb",v1:"develop",v2:"developed",v3:"developed",ving:"developing",id:"mengembangkan",ex:"Develop new skills."},
+{w:"discuss",l:"B1",pos:"verb",v1:"discuss",v2:"discussed",v3:"discussed",ving:"discussing",id:"mendiskusikan",ex:"Let's discuss this."},
+{w:"expect",l:"B1",pos:"verb",v1:"expect",v2:"expected",v3:"expected",ving:"expecting",id:"mengharapkan",ex:"I expect good news."},
+{w:"explain",l:"B1",pos:"verb",v1:"explain",v2:"explained",v3:"explained",ving:"explaining",id:"menjelaskan",ex:"Explain your answer."},
+{w:"fail",l:"B1",pos:"verb",v1:"fail",v2:"failed",v3:"failed",ving:"failing",id:"gagal",ex:"Don't be afraid to fail."},
+{w:"improve",l:"B1",pos:"verb",v1:"improve",v2:"improved",v3:"improved",ving:"improving",id:"meningkatkan",ex:"Improve your skills."},
+{w:"increase",l:"B1",pos:"verb",v1:"increase",v2:"increased",v3:"increased",ving:"increasing",id:"meningkat/menambah",ex:"Prices increased."},
+{w:"include",l:"B1",pos:"verb",v1:"include",v2:"included",v3:"included",ving:"including",id:"mencakup/termasuk",ex:"Include your name."},
+{w:"manage",l:"B1",pos:"verb",v1:"manage",v2:"managed",v3:"managed",ving:"managing",id:"mengelola/berhasil",ex:"She manages the team."},
+{w:"offer",l:"B1",pos:"verb",v1:"offer",v2:"offered",v3:"offered",ving:"offering",id:"menawarkan",ex:"He offered help."},
+{w:"plan",l:"B1",pos:"verb",v1:"plan",v2:"planned",v3:"planned",ving:"planning",id:"merencanakan",ex:"Plan your day."},
+{w:"prepare",l:"B1",pos:"verb",v1:"prepare",v2:"prepared",v3:"prepared",ving:"preparing",id:"mempersiapkan",ex:"Prepare for the test."},
+{w:"prove",l:"B1",pos:"verb",v1:"prove",v2:"proved",v3:"proved/proven",ving:"proving",id:"membuktikan",ex:"Prove your point."},
+{w:"reach",l:"B1",pos:"verb",v1:"reach",v2:"reached",v3:"reached",ving:"reaching",id:"mencapai/menjangkau",ex:"Reach for your dreams."},
+{w:"reduce",l:"B1",pos:"verb",v1:"reduce",v2:"reduced",v3:"reduced",ving:"reducing",id:"mengurangi",ex:"Reduce waste."},
+{w:"support",l:"B1",pos:"verb",v1:"support",v2:"supported",v3:"supported",ving:"supporting",id:"mendukung",ex:"Support your team."},
+{w:"suggest",l:"B1",pos:"verb",v1:"suggest",v2:"suggested",v3:"suggested",ving:"suggesting",id:"menyarankan",ex:"I suggest we leave."},
+{w:"confident",l:"B1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"percaya diri",ex:"Be more confident."},
+{w:"successful",l:"B1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"sukses/berhasil",ex:"A successful person."},
+{w:"serious",l:"B1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"serius",ex:"This is serious."},
+{w:"popular",l:"B1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"populer",ex:"A popular singer."},
+{w:"important",l:"B1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"penting",ex:"This is important."},
+{w:"experience",l:"B1",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"pengalaman",ex:"A great experience."},
+{w:"knowledge",l:"B1",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"pengetahuan",ex:"Share your knowledge."},
+{w:"opportunity",l:"B1",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"kesempatan",ex:"A great opportunity."},
+{w:"relationship",l:"B1",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"hubungan",ex:"A healthy relationship."},
+{w:"situation",l:"B1",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"situasi/keadaan",ex:"A difficult situation."},
+// B2 LEVEL
+{w:"accomplish",l:"B2",pos:"verb",v1:"accomplish",v2:"accomplished",v3:"accomplished",ving:"accomplishing",id:"menyelesaikan/mencapai",ex:"Accomplish your tasks."},
+{w:"acknowledge",l:"B2",pos:"verb",v1:"acknowledge",v2:"acknowledged",v3:"acknowledged",ving:"acknowledging",id:"mengakui/mengakui",ex:"Acknowledge your mistake."},
+{w:"adapt",l:"B2",pos:"verb",v1:"adapt",v2:"adapted",v3:"adapted",ving:"adapting",id:"beradaptasi",ex:"Adapt to new environments."},
+{w:"analyze",l:"B2",pos:"verb",v1:"analyze",v2:"analyzed",v3:"analyzed",ving:"analyzing",id:"menganalisis",ex:"Analyze the data."},
+{w:"assess",l:"B2",pos:"verb",v1:"assess",v2:"assessed",v3:"assessed",ving:"assessing",id:"menilai/mengevaluasi",ex:"Assess the risk."},
+{w:"assume",l:"B2",pos:"verb",v1:"assume",v2:"assumed",v3:"assumed",ving:"assuming",id:"berasumsi/menganggap",ex:"Don't assume things."},
+{w:"benefit",l:"B2",pos:"verb",v1:"benefit",v2:"benefited",v3:"benefited",ving:"benefiting",id:"mendapat manfaat",ex:"You'll benefit from this."},
+{w:"challenge",l:"B2",pos:"verb",v1:"challenge",v2:"challenged",v3:"challenged",ving:"challenging",id:"menantang",ex:"Challenge your limits."},
+{w:"clarify",l:"B2",pos:"verb",v1:"clarify",v2:"clarified",v3:"clarified",ving:"clarifying",id:"memperjelas",ex:"Clarify your point."},
+{w:"collaborate",l:"B2",pos:"verb",v1:"collaborate",v2:"collaborated",v3:"collaborated",ving:"collaborating",id:"berkolaborasi",ex:"Collaborate with others."},
+{w:"contribute",l:"B2",pos:"verb",v1:"contribute",v2:"contributed",v3:"contributed",ving:"contributing",id:"berkontribusi",ex:"Contribute to the project."},
+{w:"convince",l:"B2",pos:"verb",v1:"convince",v2:"convinced",v3:"convinced",ving:"convincing",id:"meyakinkan",ex:"Convince them to join."},
+{w:"demonstrate",l:"B2",pos:"verb",v1:"demonstrate",v2:"demonstrated",v3:"demonstrated",ving:"demonstrating",id:"menunjukkan/mendemonstrasi",ex:"Demonstrate your skills."},
+{w:"emphasize",l:"B2",pos:"verb",v1:"emphasize",v2:"emphasized",v3:"emphasized",ving:"emphasizing",id:"menekankan",ex:"Emphasize key points."},
+{w:"evaluate",l:"B2",pos:"verb",v1:"evaluate",v2:"evaluated",v3:"evaluated",ving:"evaluating",id:"mengevaluasi",ex:"Evaluate the results."},
+{w:"generate",l:"B2",pos:"verb",v1:"generate",v2:"generated",v3:"generated",ving:"generating",id:"menghasilkan",ex:"Generate new ideas."},
+{w:"implement",l:"B2",pos:"verb",v1:"implement",v2:"implemented",v3:"implemented",ving:"implementing",id:"mengimplementasikan",ex:"Implement the plan."},
+{w:"indicate",l:"B2",pos:"verb",v1:"indicate",v2:"indicated",v3:"indicated",ving:"indicating",id:"menunjukkan/mengindikasikan",ex:"Data indicates growth."},
+{w:"investigate",l:"B2",pos:"verb",v1:"investigate",v2:"investigated",v3:"investigated",ving:"investigating",id:"menyelidiki",ex:"Police investigated."},
+{w:"maintain",l:"B2",pos:"verb",v1:"maintain",v2:"maintained",v3:"maintained",ving:"maintaining",id:"mempertahankan/merawat",ex:"Maintain good habits."},
+{w:"negotiate",l:"B2",pos:"verb",v1:"negotiate",v2:"negotiated",v3:"negotiated",ving:"negotiating",id:"bernegosiasi",ex:"Negotiate a deal."},
+{w:"overcome",l:"B2",pos:"verb",v1:"overcome",v2:"overcame",v3:"overcome",ving:"overcoming",id:"mengatasi/mengalahkan",ex:"Overcome your fears."},
+{w:"participate",l:"B2",pos:"verb",v1:"participate",v2:"participated",v3:"participated",ving:"participating",id:"berpartisipasi",ex:"Participate actively."},
+{w:"perceive",l:"B2",pos:"verb",v1:"perceive",v2:"perceived",v3:"perceived",ving:"perceiving",id:"mempersepsikan",ex:"He perceives risks."},
+{w:"prioritize",l:"B2",pos:"verb",v1:"prioritize",v2:"prioritized",v3:"prioritized",ving:"prioritizing",id:"memprioritaskan",ex:"Prioritize your tasks."},
+{w:"recognize",l:"B2",pos:"verb",v1:"recognize",v2:"recognized",v3:"recognized",ving:"recognizing",id:"mengenali/mengakui",ex:"I recognize that face."},
+{w:"require",l:"B2",pos:"verb",v1:"require",v2:"required",v3:"required",ving:"requiring",id:"memerlukan",ex:"This job requires skill."},
+{w:"resolve",l:"B2",pos:"verb",v1:"resolve",v2:"resolved",v3:"resolved",ving:"resolving",id:"menyelesaikan/memecahkan",ex:"Resolve the conflict."},
+{w:"stimulate",l:"B2",pos:"verb",v1:"stimulate",v2:"stimulated",v3:"stimulated",ving:"stimulating",id:"merangsang/mendorong",ex:"Exercise stimulates the brain."},
+{w:"transform",l:"B2",pos:"verb",v1:"transform",v2:"transformed",v3:"transformed",ving:"transforming",id:"mengubah/mentransformasi",ex:"Transform your mindset."},
+{w:"significant",l:"B2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"signifikan/berarti",ex:"A significant change."},
+{w:"comprehensive",l:"B2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"komprehensif/menyeluruh",ex:"A comprehensive report."},
+{w:"efficient",l:"B2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"efisien",ex:"An efficient system."},
+{w:"flexible",l:"B2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"fleksibel",ex:"Be more flexible."},
+{w:"innovative",l:"B2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"inovatif",ex:"An innovative idea."},
+{w:"achievement",l:"B2",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"pencapaian",ex:"A great achievement."},
+{w:"consequence",l:"B2",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"konsekuensi/akibat",ex:"Face the consequences."},
+{w:"perspective",l:"B2",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"perspektif/sudut pandang",ex:"A different perspective."},
+{w:"strategy",l:"B2",pos:"noun",v1:"-",v2:"-",v3:"-",ving:"-",id:"strategi",ex:"A good strategy."},
+// C1 LEVEL
+{w:"abolish",l:"C1",pos:"verb",v1:"abolish",v2:"abolished",v3:"abolished",ving:"abolishing",id:"menghapuskan",ex:"Abolish old laws."},
+{w:"alleviate",l:"C1",pos:"verb",v1:"alleviate",v2:"alleviated",v3:"alleviated",ving:"alleviating",id:"meringankan",ex:"Alleviate suffering."},
+{w:"amplify",l:"C1",pos:"verb",v1:"amplify",v2:"amplified",v3:"amplified",ving:"amplifying",id:"memperkuat/memperbesar",ex:"Amplify your voice."},
+{w:"anticipate",l:"C1",pos:"verb",v1:"anticipate",v2:"anticipated",v3:"anticipated",ving:"anticipating",id:"mengantisipasi",ex:"Anticipate the problem."},
+{w:"articulate",l:"C1",pos:"verb",v1:"articulate",v2:"articulated",v3:"articulated",ving:"articulating",id:"mengartikulasikan",ex:"Articulate your thoughts."},
+{w:"attribute",l:"C1",pos:"verb",v1:"attribute",v2:"attributed",v3:"attributed",ving:"attributing",id:"mengaitkan/mengatribusikan",ex:"Attribute success to hard work."},
+{w:"capitulate",l:"C1",pos:"verb",v1:"capitulate",v2:"capitulated",v3:"capitulated",ving:"capitulating",id:"menyerah/tunduk",ex:"Don't capitulate to pressure."},
+{w:"circumvent",l:"C1",pos:"verb",v1:"circumvent",v2:"circumvented",v3:"circumvented",ving:"circumventing",id:"menghindari/menyiasati",ex:"Circumvent the rules."},
+{w:"contemplate",l:"C1",pos:"verb",v1:"contemplate",v2:"contemplated",v3:"contemplated",ving:"contemplating",id:"merenungkan",ex:"Contemplate your options."},
+{w:"contradict",l:"C1",pos:"verb",v1:"contradict",v2:"contradicted",v3:"contradicted",ving:"contradicting",id:"bertentangan/mengkontradiksi",ex:"Don't contradict yourself."},
+{w:"cultivate",l:"C1",pos:"verb",v1:"cultivate",v2:"cultivated",v3:"cultivated",ving:"cultivating",id:"membudidayakan/menumbuhkan",ex:"Cultivate good habits."},
+{w:"deteriorate",l:"C1",pos:"verb",v1:"deteriorate",v2:"deteriorated",v3:"deteriorated",ving:"deteriorating",id:"memburuk",ex:"Health can deteriorate fast."},
+{w:"dismantle",l:"C1",pos:"verb",v1:"dismantle",v2:"dismantled",v3:"dismantled",ving:"dismantling",id:"membongkar",ex:"Dismantle the old system."},
+{w:"facilitate",l:"C1",pos:"verb",v1:"facilitate",v2:"facilitated",v3:"facilitated",ving:"facilitating",id:"memfasilitasi",ex:"Facilitate the process."},
+{w:"fluctuate",l:"C1",pos:"verb",v1:"fluctuate",v2:"fluctuated",v3:"fluctuated",ving:"fluctuating",id:"berfluktuasi",ex:"Prices fluctuate daily."},
+{w:"incorporate",l:"C1",pos:"verb",v1:"incorporate",v2:"incorporated",v3:"incorporated",ving:"incorporating",id:"memasukkan/menggabungkan",ex:"Incorporate new ideas."},
+{w:"justify",l:"C1",pos:"verb",v1:"justify",v2:"justified",v3:"justified",ving:"justifying",id:"membenarkan",ex:"Justify your decision."},
+{w:"manifest",l:"C1",pos:"verb",v1:"manifest",v2:"manifested",v3:"manifested",ving:"manifesting",id:"mewujudkan/terwujud",ex:"Manifest your dreams."},
+{w:"mitigate",l:"C1",pos:"verb",v1:"mitigate",v2:"mitigated",v3:"mitigated",ving:"mitigating",id:"mengurangi/memitigasi",ex:"Mitigate the damage."},
+{w:"perpetuate",l:"C1",pos:"verb",v1:"perpetuate",v2:"perpetuated",v3:"perpetuated",ving:"perpetuating",id:"melanggengkan",ex:"Don't perpetuate myths."},
+{w:"profound",l:"C1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"mendalam/sangat dalam",ex:"A profound statement."},
+{w:"ambiguous",l:"C1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"ambigu/bermakna ganda",ex:"An ambiguous answer."},
+{w:"inevitable",l:"C1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"tak terelakkan",ex:"Change is inevitable."},
+{w:"pragmatic",l:"C1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"pragmatis",ex:"A pragmatic approach."},
+{w:"volatile",l:"C1",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"mudah berubah/volatil",ex:"A volatile market."},
+// C2 LEVEL
+{w:"abrogate",l:"C2",pos:"verb",v1:"abrogate",v2:"abrogated",v3:"abrogated",ving:"abrogating",id:"membatalkan/mencabut",ex:"Abrogate the treaty."},
+{w:"acquiesce",l:"C2",pos:"verb",v1:"acquiesce",v2:"acquiesced",v3:"acquiesced",ving:"acquiescing",id:"menyetujui diam-diam",ex:"She acquiesced to the plan."},
+{w:"ameliorate",l:"C2",pos:"verb",v1:"ameliorate",v2:"ameliorated",v3:"ameliorated",ving:"ameliorating",id:"memperbaiki/memperbagus",ex:"Ameliorate the conditions."},
+{w:"castigate",l:"C2",pos:"verb",v1:"castigate",v2:"castigated",v3:"castigated",ving:"castigating",id:"mengecam keras",ex:"He was castigated for lying."},
+{w:"dissemble",l:"C2",pos:"verb",v1:"dissemble",v2:"dissembled",v3:"dissembled",ving:"dissembling",id:"menyembunyikan perasaan",ex:"Stop dissembling the truth."},
+{w:"elicit",l:"C2",pos:"verb",v1:"elicit",v2:"elicited",v3:"elicited",ving:"eliciting",id:"memunculkan/mendapatkan respons",ex:"Elicit a response."},
+{w:"exacerbate",l:"C2",pos:"verb",v1:"exacerbate",v2:"exacerbated",v3:"exacerbated",ving:"exacerbating",id:"memperparah",ex:"Don't exacerbate the problem."},
+{w:"inundate",l:"C2",pos:"verb",v1:"inundate",v2:"inundated",v3:"inundated",ving:"inundating",id:"membanjiri/kewalahan",ex:"We were inundated with calls."},
+{w:"obfuscate",l:"C2",pos:"verb",v1:"obfuscate",v2:"obfuscated",v3:"obfuscated",ving:"obfuscating",id:"mengaburkan/membuat bingung",ex:"Stop obfuscating the issue."},
+{w:"promulgate",l:"C2",pos:"verb",v1:"promulgate",v2:"promulgated",v3:"promulgated",ving:"promulgating",id:"mengundangkan/menyebarluaskan",ex:"Promulgate a new law."},
+{w:"repudiate",l:"C2",pos:"verb",v1:"repudiate",v2:"repudiated",v3:"repudiated",ving:"repudiating",id:"menolak/mengingkari",ex:"Repudiate the claim."},
+{w:"vacillate",l:"C2",pos:"verb",v1:"vacillate",v2:"vacillated",v3:"vacillated",ving:"vacillating",id:"ragu-ragu/bimbang",ex:"Stop vacillating and decide!"},
+{w:"ineffable",l:"C2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"tak terlukiskan",ex:"Ineffable beauty."},
+{w:"perspicacious",l:"C2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"berwawasan tajam",ex:"A perspicacious analyst."},
+{w:"recalcitrant",l:"C2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"keras kepala/membangkang",ex:"A recalcitrant student."},
+{w:"surreptitious",l:"C2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"sembunyi-sembunyi",ex:"A surreptitious glance."},
+{w:"ephemeral",l:"C2",pos:"adj",v1:"-",v2:"-",v3:"-",ving:"-",id:"fana/sementara",ex:"Ephemeral pleasures."},
+];
+
+const IRREGULAR = [
+{v1:"arise",v2:"arose",v3:"arisen",ving:"arising",id:"timbul/muncul"},
+{v1:"awake",v2:"awoke",v3:"awoken",ving:"awaking",id:"terbangun"},
+{v1:"be",v2:"was/were",v3:"been",ving:"being",id:"adalah/menjadi"},
+{v1:"beat",v2:"beat",v3:"beaten",ving:"beating",id:"memukul/mengalahkan"},
+{v1:"become",v2:"became",v3:"become",ving:"becoming",id:"menjadi"},
+{v1:"begin",v2:"began",v3:"begun",ving:"beginning",id:"memulai"},
+{v1:"bend",v2:"bent",v3:"bent",ving:"bending",id:"membungkuk/menekuk"},
+{v1:"bite",v2:"bit",v3:"bitten",ving:"biting",id:"menggigit"},
+{v1:"bleed",v2:"bled",v3:"bled",ving:"bleeding",id:"berdarah"},
+{v1:"blow",v2:"blew",v3:"blown",ving:"blowing",id:"meniup"},
+{v1:"break",v2:"broke",v3:"broken",ving:"breaking",id:"memecah/rusak"},
+{v1:"breed",v2:"bred",v3:"bred",ving:"breeding",id:"berkembang biak"},
+{v1:"bring",v2:"brought",v3:"brought",ving:"bringing",id:"membawa"},
+{v1:"build",v2:"built",v3:"built",ving:"building",id:"membangun"},
+{v1:"burn",v2:"burned/burnt",v3:"burned/burnt",ving:"burning",id:"membakar"},
+{v1:"burst",v2:"burst",v3:"burst",ving:"bursting",id:"meledak/meletus"},
+{v1:"buy",v2:"bought",v3:"bought",ving:"buying",id:"membeli"},
+{v1:"catch",v2:"caught",v3:"caught",ving:"catching",id:"menangkap"},
+{v1:"choose",v2:"chose",v3:"chosen",ving:"choosing",id:"memilih"},
+{v1:"come",v2:"came",v3:"come",ving:"coming",id:"datang"},
+{v1:"cost",v2:"cost",v3:"cost",ving:"costing",id:"berharga/menelan biaya"},
+{v1:"cut",v2:"cut",v3:"cut",ving:"cutting",id:"memotong"},
+{v1:"deal",v2:"dealt",v3:"dealt",ving:"dealing",id:"berurusan"},
+{v1:"dig",v2:"dug",v3:"dug",ving:"digging",id:"menggali"},
+{v1:"do",v2:"did",v3:"done",ving:"doing",id:"melakukan"},
+{v1:"draw",v2:"drew",v3:"drawn",ving:"drawing",id:"menggambar"},
+{v1:"dream",v2:"dreamed/dreamt",v3:"dreamed/dreamt",ving:"dreaming",id:"bermimpi"},
+{v1:"drink",v2:"drank",v3:"drunk",ving:"drinking",id:"minum"},
+{v1:"drive",v2:"drove",v3:"driven",ving:"driving",id:"mengemudi"},
+{v1:"eat",v2:"ate",v3:"eaten",ving:"eating",id:"makan"},
+{v1:"fall",v2:"fell",v3:"fallen",ving:"falling",id:"jatuh"},
+{v1:"feed",v2:"fed",v3:"fed",ving:"feeding",id:"memberi makan"},
+{v1:"feel",v2:"felt",v3:"felt",ving:"feeling",id:"merasa"},
+{v1:"fight",v2:"fought",v3:"fought",ving:"fighting",id:"bertarung/berkelahi"},
+{v1:"find",v2:"found",v3:"found",ving:"finding",id:"menemukan"},
+{v1:"fly",v2:"flew",v3:"flown",ving:"flying",id:"terbang"},
+{v1:"forbid",v2:"forbade",v3:"forbidden",ving:"forbidding",id:"melarang"},
+{v1:"forget",v2:"forgot",v3:"forgotten",ving:"forgetting",id:"melupakan"},
+{v1:"forgive",v2:"forgave",v3:"forgiven",ving:"forgiving",id:"memaafkan"},
+{v1:"freeze",v2:"froze",v3:"frozen",ving:"freezing",id:"membekukan"},
+{v1:"get",v2:"got",v3:"got/gotten",ving:"getting",id:"mendapatkan"},
+{v1:"give",v2:"gave",v3:"given",ving:"giving",id:"memberi"},
+{v1:"go",v2:"went",v3:"gone",ving:"going",id:"pergi"},
+{v1:"grow",v2:"grew",v3:"grown",ving:"growing",id:"tumbuh"},
+{v1:"hang",v2:"hung",v3:"hung",ving:"hanging",id:"menggantung"},
+{v1:"have",v2:"had",v3:"had",ving:"having",id:"memiliki"},
+{v1:"hear",v2:"heard",v3:"heard",ving:"hearing",id:"mendengar"},
+{v1:"hide",v2:"hid",v3:"hidden",ving:"hiding",id:"bersembunyi"},
+{v1:"hit",v2:"hit",v3:"hit",ving:"hitting",id:"memukul"},
+{v1:"hold",v2:"held",v3:"held",ving:"holding",id:"memegang"},
+{v1:"hurt",v2:"hurt",v3:"hurt",ving:"hurting",id:"menyakiti"},
+{v1:"keep",v2:"kept",v3:"kept",ving:"keeping",id:"menyimpan/menjaga"},
+{v1:"kneel",v2:"knelt",v3:"knelt",ving:"kneeling",id:"berlutut"},
+{v1:"know",v2:"knew",v3:"known",ving:"knowing",id:"mengetahui"},
+{v1:"lay",v2:"laid",v3:"laid",ving:"laying",id:"meletakkan"},
+{v1:"lead",v2:"led",v3:"led",ving:"leading",id:"memimpin"},
+{v1:"learn",v2:"learned/learnt",v3:"learned/learnt",ving:"learning",id:"belajar"},
+{v1:"leave",v2:"left",v3:"left",ving:"leaving",id:"pergi/meninggalkan"},
+{v1:"lend",v2:"lent",v3:"lent",ving:"lending",id:"meminjamkan"},
+{v1:"let",v2:"let",v3:"let",ving:"letting",id:"membiarkan/mengizinkan"},
+{v1:"lie",v2:"lay",v3:"lain",ving:"lying",id:"berbaring"},
+{v1:"light",v2:"lit/lighted",v3:"lit/lighted",ving:"lighting",id:"menyalakan"},
+{v1:"lose",v2:"lost",v3:"lost",ving:"losing",id:"kehilangan/kalah"},
+{v1:"make",v2:"made",v3:"made",ving:"making",id:"membuat"},
+{v1:"mean",v2:"meant",v3:"meant",ving:"meaning",id:"berarti"},
+{v1:"meet",v2:"met",v3:"met",ving:"meeting",id:"bertemu"},
+{v1:"pay",v2:"paid",v3:"paid",ving:"paying",id:"membayar"},
+{v1:"put",v2:"put",v3:"put",ving:"putting",id:"meletakkan"},
+{v1:"quit",v2:"quit",v3:"quit",ving:"quitting",id:"berhenti"},
+{v1:"read",v2:"read",v3:"read",ving:"reading",id:"membaca"},
+{v1:"ride",v2:"rode",v3:"ridden",ving:"riding",id:"menunggang/mengendarai"},
+{v1:"ring",v2:"rang",v3:"rung",ving:"ringing",id:"berdering/menelepon"},
+{v1:"rise",v2:"rose",v3:"risen",ving:"rising",id:"naik/terbit"},
+{v1:"run",v2:"ran",v3:"run",ving:"running",id:"berlari"},
+{v1:"say",v2:"said",v3:"said",ving:"saying",id:"berkata"},
+{v1:"see",v2:"saw",v3:"seen",ving:"seeing",id:"melihat"},
+{v1:"sell",v2:"sold",v3:"sold",ving:"selling",id:"menjual"},
+{v1:"send",v2:"sent",v3:"sent",ving:"sending",id:"mengirim"},
+{v1:"set",v2:"set",v3:"set",ving:"setting",id:"menetapkan"},
+{v1:"shake",v2:"shook",v3:"shaken",ving:"shaking",id:"mengguncang"},
+{v1:"shine",v2:"shone",v3:"shone",ving:"shining",id:"bersinar"},
+{v1:"shoot",v2:"shot",v3:"shot",ving:"shooting",id:"menembak"},
+{v1:"show",v2:"showed",v3:"shown",ving:"showing",id:"menunjukkan"},
+{v1:"shrink",v2:"shrank",v3:"shrunk",ving:"shrinking",id:"menyusut"},
+{v1:"shut",v2:"shut",v3:"shut",ving:"shutting",id:"menutup"},
+{v1:"sing",v2:"sang",v3:"sung",ving:"singing",id:"menyanyi"},
+{v1:"sink",v2:"sank",v3:"sunk",ving:"sinking",id:"tenggelam"},
+{v1:"sit",v2:"sat",v3:"sat",ving:"sitting",id:"duduk"},
+{v1:"sleep",v2:"slept",v3:"slept",ving:"sleeping",id:"tidur"},
+{v1:"speak",v2:"spoke",v3:"spoken",ving:"speaking",id:"berbicara"},
+{v1:"spend",v2:"spent",v3:"spent",ving:"spending",id:"menghabiskan"},
+{v1:"split",v2:"split",v3:"split",ving:"splitting",id:"membelah"},
+{v1:"spread",v2:"spread",v3:"spread",ving:"spreading",id:"menyebar"},
+{v1:"stand",v2:"stood",v3:"stood",ving:"standing",id:"berdiri"},
+{v1:"steal",v2:"stole",v3:"stolen",ving:"stealing",id:"mencuri"},
+{v1:"stick",v2:"stuck",v3:"stuck",ving:"sticking",id:"menempel"},
+{v1:"strike",v2:"struck",v3:"struck",ving:"striking",id:"menyerang/memukul"},
+{v1:"swear",v2:"swore",v3:"sworn",ving:"swearing",id:"bersumpah"},
+{v1:"sweep",v2:"swept",v3:"swept",ving:"sweeping",id:"menyapu"},
+{v1:"swim",v2:"swam",v3:"swum",ving:"swimming",id:"berenang"},
+{v1:"swing",v2:"swung",v3:"swung",ving:"swinging",id:"berayun"},
+{v1:"take",v2:"took",v3:"taken",ving:"taking",id:"mengambil"},
+{v1:"teach",v2:"taught",v3:"taught",ving:"teaching",id:"mengajar"},
+{v1:"tear",v2:"tore",v3:"torn",ving:"tearing",id:"merobek"},
+{v1:"tell",v2:"told",v3:"told",ving:"telling",id:"memberitahu"},
+{v1:"think",v2:"thought",v3:"thought",ving:"thinking",id:"berpikir"},
+{v1:"throw",v2:"threw",v3:"thrown",ving:"throwing",id:"melempar"},
+{v1:"understand",v2:"understood",v3:"understood",ving:"understanding",id:"memahami"},
+{v1:"wake",v2:"woke",v3:"woken",ving:"waking",id:"bangun/membangunkan"},
+{v1:"wear",v2:"wore",v3:"worn",ving:"wearing",id:"memakai"},
+{v1:"win",v2:"won",v3:"won",ving:"winning",id:"menang"},
+{v1:"withdraw",v2:"withdrew",v3:"withdrawn",ving:"withdrawing",id:"menarik/mundur"},
+{v1:"write",v2:"wrote",v3:"written",ving:"writing",id:"menulis"},
+];
+
+const TENSES = [
+{name:"1. Simple Present",formula:"S + V1 (s/es) + O",use:"Kebiasaan, fakta umum, jadwal",signal:"every day, always, usually, often, sometimes, rarely, never, on Mondays",ex:[
+  {s:"She <strong>works</strong> every day.",t:"Dia bekerja setiap hari."},
+  {s:"The sun <strong>rises</strong> in the east.",t:"Matahari terbit di timur."},
+  {s:"I <strong>don't like</strong> coffee.",t:"Aku tidak suka kopi."},
+]},
+{name:"2. Present Continuous",formula:"S + am/is/are + V-ing + O",use:"Sedang terjadi sekarang, rencana mendatang",signal:"now, right now, at the moment, currently, look!, listen!",ex:[
+  {s:"She <strong>is working</strong> now.",t:"Dia sedang bekerja sekarang."},
+  {s:"They <strong>are playing</strong> outside.",t:"Mereka sedang bermain di luar."},
+  {s:"I <strong>am studying</strong> English.",t:"Aku sedang belajar bahasa Inggris."},
+]},
+{name:"3. Present Perfect",formula:"S + have/has + V3 + O",use:"Pengalaman, aksi yang baru selesai, baru saja",signal:"just, already, yet, ever, never, recently, since, for, so far",ex:[
+  {s:"I <strong>have eaten</strong> lunch.",t:"Aku sudah makan siang."},
+  {s:"She <strong>has visited</strong> Paris.",t:"Dia sudah pernah mengunjungi Paris."},
+  {s:"They <strong>have just arrived</strong>.",t:"Mereka baru saja tiba."},
+]},
+{name:"4. Present Perfect Continuous",formula:"S + have/has + been + V-ing + O",use:"Aksi yang mulai di masa lalu dan masih berlanjut",signal:"for, since, all day, all week, how long",ex:[
+  {s:"I <strong>have been studying</strong> for 3 hours.",t:"Aku sudah belajar selama 3 jam."},
+  {s:"She <strong>has been working</strong> since morning.",t:"Dia sudah bekerja sejak pagi."},
+]},
+{name:"5. Simple Past",formula:"S + V2 + O",use:"Kejadian yang sudah selesai di waktu lampau",signal:"yesterday, last week, ago, in 2020, just now, once, then",ex:[
+  {s:"I <strong>ate</strong> rice yesterday.",t:"Aku makan nasi kemarin."},
+  {s:"She <strong>went</strong> to school last week.",t:"Dia pergi ke sekolah minggu lalu."},
+  {s:"We <strong>met</strong> two years ago.",t:"Kami bertemu dua tahun lalu."},
+]},
+{name:"6. Past Continuous",formula:"S + was/were + V-ing + O",use:"Sedang terjadi di waktu lampau, dua aksi bersamaan",signal:"while, when, as, at that time, at 8 pm yesterday",ex:[
+  {s:"I <strong>was eating</strong> when she called.",t:"Aku sedang makan ketika dia menelepon."},
+  {s:"They <strong>were playing</strong> at 5 pm.",t:"Mereka sedang bermain jam 5 sore."},
+]},
+{name:"7. Past Perfect",formula:"S + had + V3 + O",use:"Aksi selesai SEBELUM aksi lain di masa lalu",signal:"before, after, already, by the time, when (past)",ex:[
+  {s:"She <strong>had left</strong> before I arrived.",t:"Dia sudah pergi sebelum aku tiba."},
+  {s:"I <strong>had eaten</strong> before the meeting.",t:"Aku sudah makan sebelum rapat."},
+]},
+{name:"8. Past Perfect Continuous",formula:"S + had + been + V-ing + O",use:"Aksi yang berlangsung lama sebelum aksi lain di masa lalu",signal:"for, since, before, until",ex:[
+  {s:"I <strong>had been waiting</strong> for 2 hours.",t:"Aku sudah menunggu selama 2 jam."},
+  {s:"She <strong>had been studying</strong> when the power went out.",t:"Dia sedang belajar ketika listrik mati."},
+]},
+{name:"9. Simple Future (will)",formula:"S + will + V1 + O",use:"Keputusan spontan, janji, prediksi",signal:"tomorrow, next week, soon, in the future, I think, probably",ex:[
+  {s:"I <strong>will call</strong> you tomorrow.",t:"Aku akan meneleponmu besok."},
+  {s:"It <strong>will rain</strong> tonight.",t:"Akan hujan malam ini."},
+  {s:"She <strong>will not come</strong> today.",t:"Dia tidak akan datang hari ini."},
+]},
+{name:"10. Future (be going to)",formula:"S + am/is/are + going to + V1 + O",use:"Rencana sudah diputuskan, prediksi berdasarkan bukti",signal:"tonight, next, soon, look (evidence visible)",ex:[
+  {s:"I <strong>am going to visit</strong> Jakarta tomorrow.",t:"Aku akan mengunjungi Jakarta besok."},
+  {s:"Look at those clouds! It <strong>is going to rain</strong>.",t:"Lihat awan itu! Akan hujan."},
+]},
+{name:"11. Future Continuous",formula:"S + will + be + V-ing + O",use:"Aksi yang sedang terjadi di titik waktu masa depan",signal:"at this time tomorrow, at 8 pm next week",ex:[
+  {s:"I <strong>will be sleeping</strong> at midnight.",t:"Aku akan sedang tidur tengah malam nanti."},
+  {s:"They <strong>will be working</strong> this time tomorrow.",t:"Mereka akan sedang bekerja besok waktu ini."},
+]},
+{name:"12. Future Perfect",formula:"S + will + have + V3 + O",use:"Aksi yang akan sudah selesai sebelum waktu tertentu di masa depan",signal:"by tomorrow, by next year, before, by the time",ex:[
+  {s:"I <strong>will have finished</strong> by 9 pm.",t:"Aku akan sudah selesai pada jam 9 malam."},
+  {s:"She <strong>will have graduated</strong> by next year.",t:"Dia akan sudah lulus tahun depan."},
+]},
+{name:"13. Future Perfect Continuous",formula:"S + will + have + been + V-ing + O",use:"Aksi yang sudah berlangsung lama saat titik masa depan tertentu",signal:"for + duration + by + future time",ex:[
+  {s:"By 2026, I <strong>will have been working</strong> for 5 years.",t:"Pada 2026, aku akan sudah bekerja selama 5 tahun."},
+]},
+{name:"14. Past Future (would)",formula:"S + would + V1 + O",use:"Rencana di masa lalu, kondisi tidak nyata (conditional II)",signal:"I thought, I knew, conditional: If I had... I would...",ex:[
+  {s:"I thought she <strong>would come</strong>.",t:"Aku pikir dia akan datang."},
+  {s:"If I had money, I <strong>would buy</strong> it.",t:"Kalau aku punya uang, aku akan membelinya."},
+]},
+{name:"15. Past Future Continuous",formula:"S + would + be + V-ing + O",use:"Aksi yang sedang berlangsung di masa depan (dari perspektif masa lalu)",signal:"at that time, when (conditional context)",ex:[
+  {s:"She said she <strong>would be studying</strong> all night.",t:"Dia bilang dia akan sedang belajar semalaman."},
+]},
+{name:"16. Past Future Perfect",formula:"S + would + have + V3 + O",use:"Aksi yang akan sudah selesai di masa depan (dari perspektif masa lalu) - Conditional III",signal:"If I had... I would have...",ex:[
+  {s:"If I had studied, I <strong>would have passed</strong>.",t:"Kalau aku belajar, aku pasti sudah lulus."},
+  {s:"She <strong>would have come</strong> if you had invited her.",t:"Dia pasti sudah datang kalau kamu mengundangnya."},
+]},
+];
+
+const HACKS = [
+{title:"Simple Present",key:"Signal: every, always, usually, never, on Mondays",trick:"🧠 TRIK: Bayangkan JADWAL RUTIN — seperti jadwal pelajaran sekolah. Kalau bisa dibuat jadwal, pakai Simple Present!"},
+{title:"Present Continuous",key:"Signal: NOW, right now, at the moment, look!, listen!",trick:"🧠 TRIK: Kalau kamu bisa nunjuk sambil bilang 'lihat! dia lagi...', itu Present Continuous!"},
+{title:"Present Perfect",key:"Signal: just, already, yet, ever, never, since, for",trick:"🧠 TRIK: Ada kata 'sudah/pernah/belum'? = Present Perfect. Waktu pastinya TIDAK disebutkan."},
+{title:"Present Perfect Continuous",key:"Signal: for (duration), since (start point), all day/week",trick:"🧠 TRIK: 'Sudah ... selama/sejak... dan masih berlanjut' = PPerfect Continuous. Ada bekas/efeknya!"},
+{title:"Simple Past",key:"Signal: yesterday, ago, last week, in 2020, just now",trick:"🧠 TRIK: Ada WAKTU LAMPAU yang jelas = Simple Past. Sudah selesai, titik!"},
+{title:"Past Continuous",key:"Signal: while, when, as (dua aksi bersamaan di masa lalu)",trick:"🧠 TRIK: Rumus ajaib: 'Aku SEDANG [V-ing] ketika [simple past]' = Past Continuous + Simple Past."},
+{title:"Past Perfect",key:"Signal: before, after, already, by the time",trick:"🧠 TRIK: Dua kejadian di masa lalu? Yang LEBIH DULU = Past Perfect (had+V3), yang belakangan = Simple Past."},
+{title:"Past Perfect Continuous",key:"Signal: for/since + before/until (di masa lalu)",trick:"🧠 TRIK: Past Perfect + durasi = Past Perfect Continuous. 'Sudah berlangsung lama sebelum...'"},
+{title:"Simple Future (will)",key:"Signal: tomorrow, next week, soon, I think, probably",trick:"🧠 TRIK: Keputusan spontan ('Oh aku yang akan buka pintunya!') = WILL. Bukan rencana matang."},
+{title:"Future (be going to)",key:"Signal: rencana sudah ada, atau ada bukti fisik",trick:"🧠 TRIK: BE GOING TO = rencana yang sudah diputuskan SEBELUMNYA. 'Rencanaku besok adalah...'"},
+{title:"Future Continuous",key:"Signal: at this time tomorrow, at 8 pm next week",trick:"🧠 TRIK: 'Besok jam 8, aku AKAN SEDANG [V-ing]' = Future Continuous. Ada titik waktu spesifik!"},
+{title:"Future Perfect",key:"Signal: by tomorrow, by 2027, before + future time",trick:"🧠 TRIK: 'Sebelum/pada [waktu masa depan], aku AKAN SUDAH [V3]' = Future Perfect."},
+{title:"Future Perfect Continuous",key:"Signal: by [future time], I will have been V-ing for [duration]",trick:"🧠 TRIK: Future Perfect + durasi = FPC. Sangat formal, jarang dipakai kecuali formal writing."},
+{title:"Past Future (would)",key:"Signal: conditional if..would.., atau laporan/thought masa lalu",trick:"🧠 TRIK: Conditional II (situasi tidak nyata): 'If I were rich, I WOULD...' = Would!"},
+{title:"Past Future Continuous",key:"Signal: would be V-ing (dari perspektif masa lalu)",trick:"🧠 TRIK: Jarang dipakai. Muncul di indirect speech & conditional. 'She said she would be...'"},
+{title:"Past Future Perfect",key:"Signal: If I had V3... I would have V3... (Conditional III)",trick:"🧠 TRIK: KONDISI MASA LALU yang TIDAK TERJADI = Conditional III = would have V3. Menyesal!"},
+];
+
+// ============================================================
+// QUIZ QUESTIONS BANK
+// ============================================================
+const QUIZ_VOCAB = [
+// A1
+{q:"Apa arti kata 'big'?",a:"Besar",opts:["Besar","Kecil","Cepat","Indah"],l:"A1"},
+{q:"Apa arti kata 'happy'?",a:"Bahagia",opts:["Sedih","Marah","Bahagia","Takut"],l:"A1"},
+{q:"Pilih kata yang berarti 'makan':",a:"eat",opts:["eat","sleep","run","look"],l:"A1"},
+{q:"Apa arti kata 'friend'?",a:"Teman",opts:["Keluarga","Teman","Rumah","Sekolah"],l:"A1"},
+{q:"Kata 'cold' berarti?",a:"Dingin",opts:["Panas","Besar","Dingin","Cepat"],l:"A1"},
+{q:"'Write' dalam bahasa Indonesia berarti?",a:"Menulis",opts:["Membaca","Menulis","Berlari","Berbicara"],l:"A1"},
+{q:"Kata kerja 'eat' bentuk V2-nya adalah?",a:"ate",opts:["eated","eaten","ate","eats"],l:"A1"},
+{q:"V3 dari 'go' adalah?",a:"gone",opts:["went","going","gone","goes"],l:"A1"},
+{q:"V2 dari 'take' adalah?",a:"took",opts:["taken","takes","took","taking"],l:"A1"},
+{q:"Pilih kata yang berarti 'membantu':",a:"help",opts:["help","hurt","hate","hold"],l:"A1"},
+{q:"'Fast' artinya?",a:"Cepat",opts:["Lambat","Cepat","Besar","Berat"],l:"A1"},
+{q:"V2 dari 'give' adalah?",a:"gave",opts:["given","gives","gave","giving"],l:"A1"},
+{q:"Apa arti 'school'?",a:"Sekolah",opts:["Rumah","Kantor","Sekolah","Toko"],l:"A1"},
+{q:"'Buy' bentuk V2-nya?",a:"bought",opts:["buyed","buys","bought","buying"],l:"A1"},
+{q:"Arti kata 'water' adalah?",a:"Air",opts:["Api","Air","Tanah","Angin"],l:"A1"},
+// A2
+{q:"Apa arti 'beautiful'?",a:"Cantik/Indah",opts:["Jelek","Cantik/Indah","Kecil","Jauh"],l:"A2"},
+{q:"'Understand' dalam bahasa Indonesia?",a:"Memahami",opts:["Menjelaskan","Memahami","Melupakan","Mengingat"],l:"A2"},
+{q:"V2 dari 'feel' adalah?",a:"felt",opts:["feeled","feels","felt","feeling"],l:"A2"},
+{q:"V2 dari 'leave' adalah?",a:"left",opts:["leaved","leaves","left","leaving"],l:"A2"},
+{q:"Kata 'busy' artinya?",a:"Sibuk",opts:["Malas","Sibuk","Lelah","Giat"],l:"A2"},
+{q:"'Forget' V2-nya?",a:"forgot",opts:["forget","forgetting","forgotten","forgot"],l:"A2"},
+{q:"Arti kata 'problem'?",a:"Masalah",opts:["Solusi","Masalah","Ide","Rencana"],l:"A2"},
+{q:"V2 dari 'meet' adalah?",a:"met",opts:["meeted","meets","met","meeting"],l:"A2"},
+{q:"'Early' artinya?",a:"Awal/Pagi",opts:["Terlambat","Cepat","Awal/Pagi","Malam"],l:"A2"},
+{q:"Kata yang berarti 'menikmati'?",a:"enjoy",opts:["enjoy","end","earn","enter"],l:"A2"},
+{q:"V3 dari 'bring' adalah?",a:"brought",opts:["bringed","brings","brought","bringing"],l:"A2"},
+{q:"'Tired' artinya?",a:"Lelah",opts:["Marah","Bahagia","Lelah","Bosan"],l:"A2"},
+{q:"V2 dari 'spend' adalah?",a:"spent",opts:["spend","spended","spent","spending"],l:"A2"},
+{q:"Apa arti 'idea'?",a:"Ide/Gagasan",opts:["Masalah","Solusi","Rencana","Ide/Gagasan"],l:"A2"},
+{q:"'Arrive' artinya?",a:"Tiba",opts:["Pergi","Tiba","Berlari","Berhenti"],l:"A2"},
+// B1
+{q:"Apa arti 'achieve'?",a:"Mencapai",opts:["Gagal","Mencapai","Mencoba","Memulai"],l:"B1"},
+{q:"'Develop' artinya?",a:"Mengembangkan",opts:["Menghancurkan","Mengembangkan","Mengurangi","Menambah"],l:"B1"},
+{q:"Kata yang berarti 'mendiskusikan'?",a:"discuss",opts:["decide","discuss","describe","design"],l:"B1"},
+{q:"V2 dari 'choose' adalah?",a:"chose",opts:["choosed","chosen","chose","choosing"],l:"B1"},
+{q:"'Improve' artinya?",a:"Meningkatkan",opts:["Menurunkan","Meningkatkan","Mempertahankan","Mengubah"],l:"B1"},
+{q:"'Confident' artinya?",a:"Percaya diri",opts:["Takut","Ragu","Percaya diri","Malu"],l:"B1"},
+{q:"Kata yang berarti 'mempersiapkan'?",a:"prepare",opts:["prevent","prepare","perform","provide"],l:"B1"},
+{q:"'Opportunity' artinya?",a:"Kesempatan",opts:["Tantangan","Masalah","Kesempatan","Kemampuan"],l:"B1"},
+{q:"V2 dari 'prove' adalah?",a:"proved",opts:["proven","proofed","prove","proved"],l:"B1"},
+{q:"'Relationship' artinya?",a:"Hubungan",opts:["Hubungan","Perasaan","Kepercayaan","Persahabatan"],l:"B1"},
+{q:"Kata yang berarti 'menyarankan'?",a:"suggest",opts:["support","suggest","supply","survey"],l:"B1"},
+{q:"'Knowledge' artinya?",a:"Pengetahuan",opts:["Pengalaman","Keterampilan","Pengetahuan","Pendapat"],l:"B1"},
+{q:"'Manage' artinya?",a:"Mengelola/berhasil",opts:["Mengatur/mengelola","Mengelola/berhasil","Mengontrol","Memimpin"],l:"B1"},
+{q:"V3 dari 'overcome' adalah?",a:"overcome",opts:["overcame","overcoming","overcomed","overcome"],l:"B1"},
+// B2
+{q:"Apa arti 'significant'?",a:"Signifikan/Berarti",opts:["Kecil","Biasa","Signifikan/Berarti","Salah"],l:"B2"},
+{q:"'Collaborate' artinya?",a:"Berkolaborasi",opts:["Bersaing","Berkolaborasi","Berkomunikasi","Beradaptasi"],l:"B2"},
+{q:"Kata yang berarti 'mengevaluasi'?",a:"evaluate",opts:["estimate","evaluate","eliminate","elaborate"],l:"B2"},
+{q:"'Innovative' artinya?",a:"Inovatif",opts:["Tradisional","Inovatif","Efisien","Kreatif"],l:"B2"},
+{q:"'Perspective' artinya?",a:"Perspektif/Sudut pandang",opts:["Pendapat","Perspektif/Sudut pandang","Fakta","Teori"],l:"B2"},
+{q:"V2 dari 'overcome' adalah?",a:"overcame",opts:["overcoming","overcame","overcome","overcomed"],l:"B2"},
+{q:"'Consequence' artinya?",a:"Konsekuensi/Akibat",opts:["Penyebab","Solusi","Konsekuensi/Akibat","Hasil"],l:"B2"},
+{q:"Kata yang berarti 'meyakinkan'?",a:"convince",opts:["compare","confirm","convince","control"],l:"B2"},
+{q:"'Efficient' artinya?",a:"Efisien",opts:["Efektif","Efisien","Produktif","Optimal"],l:"B2"},
+{q:"'Achievement' artinya?",a:"Pencapaian",opts:["Kegagalan","Usaha","Pencapaian","Prestasi sekolah"],l:"B2"},
+{q:"'Flexible' artinya?",a:"Fleksibel",opts:["Kaku","Fleksibel","Lambat","Cepat"],l:"B2"},
+{q:"Kata yang berarti 'menyelidiki'?",a:"investigate",opts:["implement","introduce","investigate","indicate"],l:"B2"},
+{q:"'Strategy' artinya?",a:"Strategi",opts:["Taktik","Strategi","Metode","Teknik"],l:"B2"},
+// C1
+{q:"Apa arti 'inevitable'?",a:"Tak terelakkan",opts:["Mungkin","Pasti","Tak terelakkan","Tidak mungkin"],l:"C1"},
+{q:"'Facilitate' artinya?",a:"Memfasilitasi",opts:["Mempersulit","Memfasilitasi","Menghambat","Mengontrol"],l:"C1"},
+{q:"Kata yang berarti 'berfluktuasi'?",a:"fluctuate",opts:["fluctuate","fabricate","facilitate","formulate"],l:"C1"},
+{q:"'Pragmatic' artinya?",a:"Pragmatis",opts:["Teoritis","Pragmatis","Optimis","Realistis"],l:"C1"},
+{q:"'Profound' artinya?",a:"Mendalam/Sangat dalam",opts:["Dangkal","Mendalam/Sangat dalam","Biasa","Umum"],l:"C1"},
+{q:"Kata yang berarti 'mengantisipasi'?",a:"anticipate",opts:["acknowledge","anticipate","articulate","alleviate"],l:"C1"},
+{q:"'Volatile' artinya?",a:"Mudah berubah/Volatil",opts:["Stabil","Konsisten","Mudah berubah/Volatil","Tetap"],l:"C1"},
+{q:"'Ambiguous' artinya?",a:"Ambigu/Bermakna ganda",opts:["Jelas","Tepat","Ambigu/Bermakna ganda","Lengkap"],l:"C1"},
+{q:"Kata yang berarti 'meringankan'?",a:"alleviate",opts:["amplify","abolish","alleviate","attribute"],l:"C1"},
+{q:"'Deteriorate' artinya?",a:"Memburuk",opts:["Membaik","Stabil","Memburuk","Berubah"],l:"C1"},
+// C2
+{q:"Apa arti 'ephemeral'?",a:"Fana/Sementara",opts:["Abadi","Fana/Sementara","Nyata","Penting"],l:"C2"},
+{q:"'Exacerbate' artinya?",a:"Memperparah",opts:["Memperbaiki","Memperparah","Menyelesaikan","Mengabaikan"],l:"C2"},
+{q:"Kata yang berarti 'mengaburkan'?",a:"obfuscate",opts:["clarify","rectify","obfuscate","simplify"],l:"C2"},
+{q:"'Recalcitrant' artinya?",a:"Keras kepala/Membangkang",opts:["Patuh","Keras kepala/Membangkang","Pendiam","Rajin"],l:"C2"},
+{q:"'Elicit' artinya?",a:"Memunculkan/Mendapatkan respons",opts:["Membuat","Memunculkan/Mendapatkan respons","Menolak","Meminta"],l:"C2"},
+{q:"'Ineffable' artinya?",a:"Tak terlukiskan",opts:["Biasa-biasa","Tak terlukiskan","Mudah dijelaskan","Umum"],l:"C2"},
+{q:"Kata yang berarti 'ragu-ragu/bimbang'?",a:"vacillate",opts:["validate","vacillate","ventilate","violate"],l:"C2"},
+{q:"'Perspicacious' artinya?",a:"Berwawasan tajam",opts:["Buta","Berwawasan tajam","Lambat berpikir","Gegabah"],l:"C2"},
+];
+
+const QUIZ_GRAMMAR = [
+{q:"She ___ to school every day.",a:"goes",opts:["go","goes","going","went"],l:"A1",exp:"Simple Present: She (orang ketiga) pakai 'goes'"},
+{q:"I ___ TV right now.",a:"am watching",opts:["watch","watched","am watching","have watched"],l:"A1",exp:"Present Continuous: sedang terjadi sekarang"},
+{q:"We ___ pizza yesterday.",a:"ate",opts:["eat","eats","eating","ate"],l:"A1",exp:"Simple Past: 'yesterday' → V2 = ate"},
+{q:"They ___ football tomorrow.",a:"will play",opts:["play","played","will play","are playing"],l:"A2",exp:"Simple Future: 'tomorrow' dengan keputusan spontan → will"},
+{q:"I ___ my keys. I can't find them.",a:"have lost",opts:["lost","lose","have lost","was losing"],l:"A2",exp:"Present Perfect: baru saja terjadi, ada efeknya sekarang"},
+{q:"She ___ when I called.",a:"was sleeping",opts:["slept","sleep","was sleeping","has slept"],l:"A2",exp:"Past Continuous: sedang terjadi saat aksi lain di masa lalu"},
+{q:"By the time she arrived, I ___ already.",a:"had left",opts:["left","leave","was leaving","had left"],l:"B1",exp:"Past Perfect: selesai SEBELUM aksi lain di masa lalu"},
+{q:"I ___ English for 3 years now.",a:"have been learning",opts:["learn","am learning","learned","have been learning"],l:"B1",exp:"Present Perfect Continuous: dimulai di masa lalu, masih berlanjut sekarang"},
+{q:"If I ___ rich, I would buy a house.",a:"were",opts:["am","was","were","be"],l:"B1",exp:"Conditional II: If + S + were/V2 + ... would + V1"},
+{q:"By next year, she ___ here for 10 years.",a:"will have worked",opts:["will work","is working","will be working","will have worked"],l:"B2",exp:"Future Perfect: akan sudah selesai pada waktu masa depan tertentu"},
+{q:"He ___ for 2 hours before she finally came.",a:"had been waiting",opts:["waited","was waiting","had waited","had been waiting"],l:"B2",exp:"Past Perfect Continuous: berlangsung lama sebelum aksi lain di masa lalu"},
+{q:"At this time tomorrow, I ___ on the beach.",a:"will be lying",opts:["will lie","lie","am lying","will be lying"],l:"B2",exp:"Future Continuous: sedang terjadi pada titik waktu masa depan"},
+{q:"She said she ___ come to the party.",a:"would",opts:["will","shall","would","should"],l:"B1",exp:"Past Future: reported speech → will berubah menjadi would"},
+{q:"If he ___ harder, he would have passed.",a:"had studied",opts:["studied","studies","had studied","would study"],l:"C1",exp:"Conditional III: If + had + V3 → would have + V3"},
+{q:"The report ___ by the team last week.",a:"was written",opts:["wrote","was written","has written","is written"],l:"C1",exp:"Passive Voice Simple Past: was/were + V3"},
+{q:"They ___ the project by the end of this month.",a:"will have completed",opts:["complete","will complete","are completing","will have completed"],l:"C1",exp:"Future Perfect: by the end of this month = penanda waktu Future Perfect"},
+{q:"No sooner ___ he arrived than it started raining.",a:"had",opts:["did","has","had","was"],l:"C2",exp:"Inversion: 'No sooner had S + V3... than...' = Past Perfect"},
+{q:"Hardly ___ she entered when everyone cheered.",a:"had",opts:["did","has","had","was"],l:"C2",exp:"Inversion dengan Hardly: 'Hardly had S + V3...'"},
+{q:"She ___ at the gym at 6 this evening.",a:"will be working out",opts:["works out","worked out","will work out","will be working out"],l:"B2",exp:"Future Continuous: at 6 this evening = titik waktu masa depan"},
+{q:"I ___ him three times but he didn't answer.",a:"called",opts:["call","have called","called","was calling"],l:"A2",exp:"Simple Past: 'three times' + sudah selesai"},
+];
+
+const QUIZ_IRR = [
+{q:"V2 dari 'break' adalah?",a:"broke",opts:["broked","broken","broke","breaking"],l:"A2"},
+{q:"V3 dari 'write' adalah?",a:"written",opts:["wrote","writing","writed","written"],l:"A2"},
+{q:"V2 dari 'teach' adalah?",a:"taught",opts:["teached","thought","taught","teaching"],l:"A2"},
+{q:"V3 dari 'sing' adalah?",a:"sung",opts:["sang","singed","singing","sung"],l:"A2"},
+{q:"V2 dari 'fly' adalah?",a:"flew",opts:["flied","flown","flew","flying"],l:"A2"},
+{q:"V2 dari 'steal' adalah?",a:"stole",opts:["stolen","stealed","stole","stealing"],l:"B1"},
+{q:"V3 dari 'freeze' adalah?",a:"frozen",opts:["froze","freeze","frozen","freezing"],l:"B1"},
+{q:"V2 dari 'sweep' adalah?",a:"swept",opts:["sweeped","sweeping","swept","sweep"],l:"B1"},
+{q:"V3 dari 'rise' adalah?",a:"risen",opts:["rose","rising","rised","risen"],l:"B1"},
+{q:"V2 dari 'bind' adalah?",a:"bound",opts:["binded","binding","bound","bund"],l:"B2"},
+{q:"V3 dari 'shrink' adalah?",a:"shrunk",opts:["shrank","shrunk","shrinked","shrinking"],l:"B2"},
+{q:"V2 dari 'forbid' adalah?",a:"forbade",opts:["forbidded","forbidden","forbade","forbidding"],l:"B2"},
+{q:"V3 dari 'withdraw' adalah?",a:"withdrawn",opts:["withdrew","withdrawed","withdrawing","withdrawn"],l:"C1"},
+{q:"V2 dari 'kneel' adalah?",a:"knelt",opts:["kneeled","kneelt","knelt","kneeling"],l:"C1"},
+{q:"V3 dari 'swear' adalah?",a:"sworn",opts:["swore","sweared","swearing","sworn"],l:"C1"},
+];
+
+// ============================================================
+// STATE
+// ============================================================
+let totalScore = 0;
+let quizDone = 0;
+let streak = 0;
+let currentLevel = 'all';
+let quizState = {
+  questions:[],mode:'',level:'all',current:0,correct:0,wrong:0,pts:0,answered:false
+};
+let fcIndex = 0;
+let fcLevel = 'all';
+let fcFlipped = false;
+
+// ============================================================
+// NAV
+// ============================================================
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  event.target.classList.add('active');
+  if(id==='vocab') renderVocab();
+  if(id==='tenses') renderTenses();
+  if(id==='irregular') renderIrr();
+  if(id==='quiz') renderQuizMenu();
+}
+function showSubTab(section,tab){
+  document.querySelectorAll('#page-'+section+' .sub-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('#page-'+section+' .sub-page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(section+'-'+tab).classList.add('active');
+  const tabs = document.querySelectorAll('#page-'+section+' .sub-tab');
+  tabs.forEach(t=>{if(t.onclick.toString().includes("'"+tab+"'")||t.onclick.toString().includes('"'+tab+'"'))t.classList.add('active')});
+  // manual
+  document.querySelectorAll('#page-'+section+' .sub-tab').forEach(t=>{
+    if(t.getAttribute('onclick')&&t.getAttribute('onclick').includes("'"+tab+"'"))t.classList.add('active');
+  });
+}
+
+// ============================================================
+// VOCAB
+// ============================================================
+const LEVELS = ['A1','A2','B1','B2','C1','C2'];
+function renderVocab(){
+  const fb = document.getElementById('vocabFilterBtns');
+  if(!fb.innerHTML){
+    fb.innerHTML='<button class="vf-btn active" onclick="setVocabLevel(\'all\',this)">Semua</button>'+
+      LEVELS.map(l=>`<button class="vf-btn" onclick="setVocabLevel('${l}',this)">${l}</button>`).join('');
+    // flashcard filter
+    const fb2=document.getElementById('fcFilterBtns');
+    fb2.innerHTML='<button class="vf-btn active" onclick="setFcLevel(\'all\',this)">Semua</button>'+
+      LEVELS.map(l=>`<button class="vf-btn" onclick="setFcLevel('${l}',this)">${l}</button>`).join('');
+  }
+  filterVocab();
+  renderFlashcard();
+}
+let vocabLevel='all';
+function setVocabLevel(l,btn){
+  vocabLevel=l;
+  document.querySelectorAll('#vocab-list .vf-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  filterVocab();
+}
+function setFcLevel(l,btn){
+  fcLevel=l;
+  fcIndex=0;
+  document.querySelectorAll('#fcFilterBtns .vf-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderFlashcard();
+}
+function filterVocab(){
+  const q=(document.getElementById('vocabSearch').value||'').toLowerCase();
+  const filtered=VOCAB.filter(v=>(vocabLevel==='all'||v.l===vocabLevel)&&
+    (v.w.toLowerCase().includes(q)||v.id.toLowerCase().includes(q)));
+  document.getElementById('vocabCount').textContent=`Menampilkan ${filtered.length} dari ${VOCAB.length} kata`;
+  const tbody=document.getElementById('vocabBody');
+  tbody.innerHTML=filtered.map(v=>`<tr>
+    <td class="v-word">${v.w}</td>
+    <td><span class="card-tag ${lvColor(v.l)}">${v.l}</span></td>
+    <td style="color:var(--muted);font-size:0.8rem">${v.pos}</td>
+    <td>${v.v1}</td><td>${v.v2}</td><td>${v.v3}</td><td>${v.ving}</td>
+    <td class="v-meaning">${v.id}</td>
+    <td style="font-style:italic;font-size:0.8rem;color:var(--muted)">${v.ex}</td>
+  </tr>`).join('');
+}
+function lvColor(l){
+  if(l==='A1')return'green';if(l==='A2')return'green';
+  if(l==='B1')return'yellow';if(l==='B2')return'yellow';
+  if(l==='C1')return'red';if(l==='C2')return'red';
+  return'blue';
+}
+
+// FLASHCARD
+function renderFlashcard(){
+  const data=VOCAB.filter(v=>fcLevel==='all'||v.l===fcLevel);
+  if(!data.length)return;
+  if(fcIndex>=data.length)fcIndex=0;
+  const v=data[fcIndex];
+  fcFlipped=false;
+  document.getElementById('fc-level').textContent=v.l+' · '+v.pos;
+  document.getElementById('fc-front').textContent=v.w;
+  document.getElementById('fc-hint').textContent='Klik untuk lihat arti';
+  document.getElementById('fc-back').style.display='none';
+  document.getElementById('fc-back').querySelector('div').textContent=v.id;
+  document.getElementById('fc-vforms').textContent=`V1:${v.v1} | V2:${v.v2} | V3:${v.v3} | V-ing:${v.ving}`;
+  document.getElementById('fc-ex').textContent=v.ex;
+  document.getElementById('fcProgress').textContent=(fcIndex+1)+' / '+data.length;
+}
+function flipCard(){
+  const data=VOCAB.filter(v=>fcLevel==='all'||v.l===fcLevel);
+  const v=data[fcIndex];
+  fcFlipped=!fcFlipped;
+  if(fcFlipped){
+    document.getElementById('fc-hint').textContent='';
+    document.getElementById('fc-back').style.display='block';
+  } else {
+    document.getElementById('fc-hint').textContent='Klik untuk lihat arti';
+    document.getElementById('fc-back').style.display='none';
+  }
+}
+function nextCard(){
+  const data=VOCAB.filter(v=>fcLevel==='all'||v.l===fcLevel);
+  fcIndex=(fcIndex+1)%data.length;
+  renderFlashcard();
+}
+function prevCard(){
+  const data=VOCAB.filter(v=>fcLevel==='all'||v.l===fcLevel);
+  fcIndex=(fcIndex-1+data.length)%data.length;
+  renderFlashcard();
+}
+
+// ============================================================
+// TENSES
+// ============================================================
+function renderTenses(){
+  const tg=document.getElementById('tenseGrid');
+  if(tg.innerHTML)return;
+  tg.innerHTML=TENSES.map(t=>`
+    <div class="tense-card">
+      <div class="tense-name">${t.name}</div>
+      <div class="tense-formula">${t.formula}</div>
+      <div class="tense-use">📌 Digunakan untuk: ${t.use}</div>
+      <div style="font-size:0.78rem;color:var(--teal);margin-bottom:8px">🔑 Signal words: <em>${t.signal}</em></div>
+      <div class="tense-examples">${t.ex.map(e=>`<div class="tense-ex">${e.s} <span style="color:var(--muted)">→ ${e.t}</span></div>`).join('')}</div>
+    </div>
+  `).join('');
+  // hack grid
+  const hg=document.getElementById('hackGrid');
+  if(!hg.innerHTML)
+    hg.innerHTML=HACKS.map(h=>`
+      <div class="hack-card">
+        <div class="hack-title">${h.title}</div>
+        <div class="hack-key">🔑 ${h.key}</div>
+        <div class="hack-trick">${h.trick}</div>
+      </div>
+    `).join('');
+  // compare
+  const cc=document.getElementById('compareContent');
+  if(!cc.innerHTML){
+    cc.innerHTML=`
+      <div class="card" style="max-width:700px;margin:0 auto">
+        <div class="card-title">🔍 Simple Past vs Present Perfect</div>
+        <div style="font-size:0.85rem;margin-top:10px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div style="background:#fef3c7;border-radius:10px;padding:12px"><strong>Simple Past</strong><br>Waktu PASTI disebutkan<br><em>"I ate at 7pm."</em><br><em>"She left yesterday."</em></div>
+            <div style="background:#dbeafe;border-radius:10px;padding:12px"><strong>Present Perfect</strong><br>Waktu TIDAK disebutkan<br><em>"I have eaten."</em><br><em>"She has left."</em></div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="max-width:700px;margin:16px auto 0">
+        <div class="card-title">🔍 Will vs Be Going To</div>
+        <div style="font-size:0.85rem;margin-top:10px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div style="background:#fef3c7;border-radius:10px;padding:12px"><strong>Will</strong><br>Keputusan SPONTAN<br>Janji, prediksi umum<br><em>"I'll get the door!"</em></div>
+            <div style="background:#dbeafe;border-radius:10px;padding:12px"><strong>Be Going To</strong><br>Rencana SUDAH ADA<br>Bukti fisik terlihat<br><em>"I'm going to visit Bali next week."</em></div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="max-width:700px;margin:16px auto 0">
+        <div class="card-title">🔍 Conditional Summary</div>
+        <table class="vocab-table" style="margin-top:10px">
+          <thead><tr><th>Type</th><th>Kondisi</th><th>Rumus</th><th>Contoh</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>Fakta umum</td><td>If + V1... V1</td><td>If you heat water, it boils.</td></tr>
+            <tr><td>1</td><td>Mungkin terjadi</td><td>If + V1... will + V1</td><td>If it rains, I will stay home.</td></tr>
+            <tr><td>2</td><td>Tidak nyata (sekarang)</td><td>If + V2... would + V1</td><td>If I were rich, I would travel.</td></tr>
+            <tr><td>3</td><td>Tidak terjadi (masa lalu)</td><td>If + had V3... would have V3</td><td>If I had studied, I would have passed.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+}
+
+// ============================================================
+// IRREGULAR VERBS
+// ============================================================
+function renderIrr(){
+  document.getElementById('irrCount').textContent=`Total: ${IRREGULAR.length} irregular verbs`;
+  filterIrr();
+}
+function filterIrr(){
+  const q=(document.getElementById('irrSearch').value||'').toLowerCase();
+  const filtered=IRREGULAR.filter(v=>v.v1.includes(q)||v.v2.includes(q)||v.v3.includes(q)||v.id.toLowerCase().includes(q));
+  document.getElementById('irrCount').textContent=`Menampilkan ${filtered.length} dari ${IRREGULAR.length} irregular verbs`;
+  document.getElementById('irrBody').innerHTML=filtered.map(v=>`<tr>
+    <td class="v-word">${v.v1}</td>
+    <td style="color:var(--accent2);font-weight:700">${v.v2}</td>
+    <td style="color:var(--green);font-weight:700">${v.v3}</td>
+    <td style="color:var(--muted)">${v.ving}</td>
+    <td class="v-meaning">${v.id}</td>
+  </tr>`).join('');
+}
+
+// ============================================================
+// QUIZ ENGINE
+// ============================================================
+let quizLevelSelected='all';
+function renderQuizMenu(){
+  const lb=document.getElementById('quizLevelBtns');
+  if(!lb.innerHTML){
+    lb.innerHTML='<button class="level-btn active" data-lv="all" onclick="selectQuizLevel(\'all\',this)">Semua Level</button>'+
+      LEVELS.map(l=>`<button class="level-btn" data-lv="${l}" onclick="selectQuizLevel('${l}',this)">${l}</button>`).join('');
+  }
+  document.getElementById('quizMenu').classList.remove('hidden');
+  document.getElementById('quizBox').classList.add('hidden');
+  document.getElementById('quizResult').classList.add('hidden');
+}
+function selectQuizLevel(l,btn){
+  quizLevelSelected=l;
+  document.querySelectorAll('.level-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function buildQuestions(mode){
+  let pool=[];
+  if(mode==='vocab'||mode==='mix') pool=[...pool,...QUIZ_VOCAB];
+  if(mode==='grammar'||mode==='mix') pool=[...pool,...QUIZ_GRAMMAR];
+  if(mode==='irregular') pool=[...QUIZ_IRR];
+  if(mode==='mix') pool=[...pool,...QUIZ_IRR];
+  if(quizLevelSelected!=='all') pool=pool.filter(q=>q.l===quizLevelSelected);
+  // shuffle
+  pool.sort(()=>Math.random()-0.5);
+  return pool.slice(0,30);
+}
+function startQuiz(mode){
+  const qs=buildQuestions(mode);
+  if(!qs.length){alert('Tidak ada soal untuk level ini. Pilih level lain!');return;}
+  quizState={questions:qs,mode,level:quizLevelSelected,current:0,correct:0,wrong:0,pts:0,answered:false};
+  document.getElementById('quizMenu').classList.add('hidden');
+  document.getElementById('quizBox').classList.remove('hidden');
+  document.getElementById('quizResult').classList.add('hidden');
+  renderQuestion();
+}
+function renderQuestion(){
+  const s=quizState;
+  const q=s.questions[s.current];
+  // dots
+  document.getElementById('qDots').innerHTML=s.questions.map((qq,i)=>`<div class="q-dot${i===s.current?' current':i<s.current?' done':''}"></div>`).join('');
+  document.getElementById('qNum').textContent=`Soal ${s.current+1} dari ${s.questions.length} · Level ${q.l}`;
+  document.getElementById('qLevelTag').innerHTML=`<span class="card-tag ${lvColor(q.l)}">${q.l}</span>`;
+  document.getElementById('qText').textContent=q.q;
+  document.getElementById('qCorrect').textContent=s.correct;
+  document.getElementById('qWrong').textContent=s.wrong;
+  document.getElementById('qPts').textContent=s.pts;
+  // shuffle options
+  const opts=[...q.opts].sort(()=>Math.random()-0.5);
+  document.getElementById('qOpts').innerHTML=opts.map(o=>`<button class="q-opt" onclick="answerQ('${o.replace(/'/g,"\\'")}','${q.a.replace(/'/g,"\\'")}','${(q.exp||'').replace(/'/g,"\\'")}')">${o}</button>`).join('');
+  document.getElementById('qFeedback').className='q-feedback';
+  document.getElementById('qFeedback').textContent='';
+  document.getElementById('qNext').style.display='none';
+  quizState.answered=false;
+}
+function answerQ(chosen,correct,exp){
+  if(quizState.answered)return;
+  quizState.answered=true;
+  const opts=document.querySelectorAll('.q-opt');
+  opts.forEach(btn=>{
+    btn.disabled=true;
+    if(btn.textContent===correct)btn.classList.add('correct');
+    else if(btn.textContent===chosen&&chosen!==correct)btn.classList.add('wrong');
+  });
+  const fb=document.getElementById('qFeedback');
+  if(chosen===correct){
+    quizState.correct++;
+    const pts=lvPts(quizState.questions[quizState.current].l);
+    quizState.pts+=pts;totalScore+=pts;
+    streak++;
+    fb.textContent='✅ Benar! '+(exp||'');
+    fb.className='q-feedback show ok';
+    document.getElementById('streakCount').textContent=streak;
+  } else {
+    quizState.wrong++;
+    streak=0;
+    document.getElementById('streakCount').textContent=streak;
+    fb.textContent='❌ Salah. Jawaban benar: '+correct+(exp?' | '+exp:'');
+    fb.className='q-feedback show no';
+    // mark correct dot
+    const dots=document.getElementById('qDots').querySelectorAll('.q-dot');
+    if(dots[quizState.current])dots[quizState.current].classList.add('wrong');
+  }
+  document.getElementById('qCorrect').textContent=quizState.correct;
+  document.getElementById('qWrong').textContent=quizState.wrong;
+  document.getElementById('qPts').textContent=quizState.pts;
+  document.getElementById('totalScore').textContent=totalScore;
+  document.getElementById('homePts').textContent=totalScore;
+  document.getElementById('qNext').style.display='inline-flex';
+}
+function lvPts(l){
+  if(l==='A1')return 5;if(l==='A2')return 8;if(l==='B1')return 12;
+  if(l==='B2')return 16;if(l==='C1')return 20;if(l==='C2')return 25;return 10;
+}
+function nextQuestion(){
+  quizState.current++;
+  if(quizState.current>=quizState.questions.length){
+    showResult();
+  } else {
+    renderQuestion();
+  }
+}
+function showResult(){
+  quizDone++;
+  document.getElementById('homeQuiz').textContent=quizDone;
+  document.getElementById('quizBox').classList.add('hidden');
+  document.getElementById('quizResult').classList.remove('hidden');
+  const pct=Math.round(quizState.correct/quizState.questions.length*100);
+  let emoji='😢',msg='Jangan menyerah! Ulangi lagi ya.';
+  if(pct>=90){emoji='🏆';msg='Luar biasa! Kamu master!';}
+  else if(pct>=70){emoji='🌟';msg='Bagus banget! Tinggal sedikit lagi!';}
+  else if(pct>=50){emoji='👍';msg='Cukup baik! Terus berlatih ya.';}
+  else if(pct>=30){emoji='😊';msg='Ada kemajuan! Semangat Nuna!';}
+  document.getElementById('rEmoji').textContent=emoji;
+  document.getElementById('rScore').textContent=`${quizState.correct}/${quizState.questions.length} (${pct}%) · +${quizState.pts} pts`;
+  document.getElementById('rMsg').textContent=msg;
+}
+function retryQuiz(){
+  startQuiz(quizState.mode);
+}
+function quitQuiz(){
+  renderQuizMenu();
+}
+// ============================================================
+// INIT
+// ============================================================
+window.addEventListener('DOMContentLoaded',()=>{
+  filterVocab();
+  renderIrr();
+});
+</script>
+</body>
+</html>
